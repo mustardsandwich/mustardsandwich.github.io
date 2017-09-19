@@ -33,11 +33,12 @@ function preload() {
 	game.load.image('menu_background', 'assets/menu/background.png');
 	game.load.spritesheet('menu_button_story', 'assets/menu/button_story.png', 256, 128);
 	game.load.spritesheet('menu_button_arcade', 'assets/menu/button_arcade.png', 256, 128);
-	// game.load.spritesheet('menu_button_music', 'assets/menu/button_music.png', 64, 64);
-	// game.load.spritesheet('menu_button_sound', 'assets/menu/button_sound.png', 64, 64);
+	game.load.spritesheet('menu_button_music', 'assets/menu/button_music.png', 32, 32);
+	game.load.spritesheet('menu_button_sound', 'assets/menu/button_sound.png', 32, 32);
 	game.load.spritesheet('menu_button_easy', 'assets/menu/button_easy.png', 128, 64);
 	game.load.spritesheet('menu_button_normal', 'assets/menu/button_normal.png', 128, 64);
 	game.load.spritesheet('menu_button_hard', 'assets/menu/button_hard.png', 128, 64);
+	game.load.spritesheet('menu_button_back', 'assets/menu/button_back.png', 128, 64);
 	game.load.spritesheet('menu_crab', 'assets/menu/crab.png', 64, 48);
 	
 	// These images are used throughout story mode.
@@ -77,14 +78,17 @@ var room = 0;   					// Which room (level) are we in?
  *   Variables that I preface with an S should be saved to a cookie when the player saves.
  */
 
-/* S */ var story = 0;  			// How far along you are in the story.
-/* S */ var difficulty = 1;   		// Game difficulty: Easy (0), Normal (1), Hard (2)
-		var diffLang = ["EASY", "NORMAL", "HARD"];
+/* S */ var story = 0;  									// How far along you are in the story.
+/* S */ var difficulty = 1;   								// Game difficulty: Easy (0), Normal (1), Hard (2)
+var diffLang = ["EASY", "NORMAL", "HARD"];					// Used to display game difficulty.
+/* S */ var music_toggle = true, sound_toggle = true;		// Toggles to play music and sounds in the game
 
 // For the main menu...
 var menu_title, menu_subtitle;														// Title at the top of the menu
-var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clickable buttons on the menu
-var menu_crab, menu_crab_hide = false, menu_crab_walk = 0, menu_crab_walk_point;	// Walking crab on the menu
+var menu_crab, menu_crab_hide = false, menu_crab_walk = 0, menu_crab_walk_point;	// Walking crab on the main menu
+var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clickable buttons: main menu
+var menu_button_music, menu_button_sound;
+var menu_button_new, menu_button_continue, menu_button_back;						// Clickable buttons: story menu
 
 // Some constants for creating games...
 var DOLPHIN = 0, SEAL = 1, OCTOPUS = 2;
@@ -129,9 +133,11 @@ function create() {
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'THE REAL DEAL');
 			menu_subtitle.anchor.set(0.5, 0.5);
-			menu_button_story = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_story', storyButton, this, 0, 0, 1);
-			menu_button_arcade = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_arcade', arcadeButton, this, 0, 0, 1);
+			menu_button_story = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_story', storyButton, this, 1, 0, 1);
+			menu_button_arcade = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_arcade', arcadeButton, this, 1, 0, 1);
 			setDifficultyButton(difficulty);
+			setMusicButton(true);
+			setSoundButton(true);
 
 			// Here we add the menu crab and his animations.
 			menu_crab = game.add.sprite(64, game.world.height - 80, 'menu_crab');
@@ -290,6 +296,36 @@ function setDifficultyButton(myDiff){
 	var myString = 'menu_button_'.concat(diffLang[myDiff].toLowerCase());
 	menu_button_difficulty = game.add.button(game.world.width / 2 - 64, 272, myString, setDifficulty, this, 0, 0, 1);
 	console.log("Difficulty set to: " + diffLang[myDiff] + ".");
+}
+function toggleMusic(){
+	music_toggle = !music_toggle;
+	console.log("Music toggled to: " + music_toggle.toString().toUpperCase() + ". ");
+	setMusicButton(false);
+}
+function setMusicButton(onStart){
+	if(!onStart){ menu_button_music.destroy(); }
+	
+	if(music_toggle){
+		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 2, 0, 1);
+	}
+	else{
+		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 3, 1, 0);
+	}
+}
+function toggleSound(){
+	sound_toggle = !sound_toggle;
+	console.log("Sound toggled to: " + sound_toggle.toString().toUpperCase() + ". ");
+	setSoundButton(false);
+}
+function setSoundButton(onStart){
+	if(!onStart){ menu_button_sound.destroy(); }
+	
+	if(sound_toggle){
+		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 2, 0, 1);
+	}
+	else{
+		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 3, 1, 0);
+	}
 }
 function menuCrabHide(){
 	// Clicking on the crab makes it stop and hide.
@@ -473,7 +509,11 @@ function dolphinRegenCounter(){
  *   These functions are specifically for the seal game.
  *   Some might apply to both Story and Arcade Mode.
  */
-
+function sealMove(){
+	// This is the function that lets you rotate the seal on mouse input.
+	
+}
+ 
 /*   General functions
  *   These functions are useful throughout the code.
  *   They perform important processes and make life easier all around. :)
