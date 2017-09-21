@@ -97,7 +97,7 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 
 // For story mode...
 // Some constants for creating character dialogue:
-var PLAYER = 0, DALE = 1, EDWIN = 2;
+var charLang = ["PLAYER", "DALE", "EDWIN", "DAD", "MOM"];
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -577,19 +577,12 @@ function makeText(x, y, font, size, color, myText){
 	// To center, use .anchor.set(0.5, 0.5)
 }
 function dialogue(character, fileStart, fileEnd){
-	var charName = "";
+	// Get and display character name
+	var charName = charLang[character];
 	
 	// Draw character chathead
-	switch(character){
-		case PLAYER:
-			break;
-		case DALE:
-			break;
-		case EDWIN:
-			break;
-		default:
-			// Default case (called with -1) is for tutorial instructions.
-	}
+	var charHead = charName.toLowerCase();
+
 }
 function makeScore(doScorePop, x, y, myScore, myTotal){
 	// Displays score added at a point ("+100")
