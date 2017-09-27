@@ -29,24 +29,26 @@ WebFont.load(wfconfig);
  *   Later in development, new loading systems may be implemented to optimize the game.
  */
 function preload() {
-	// These are all of the images used in the main menu.
-	game.load.image('menu_background', 'assets/menu/background.png');
-	game.load.spritesheet('menu_button_story', 'assets/menu/button_story.png', 256, 128);
-	game.load.spritesheet('menu_button_arcade', 'assets/menu/button_arcade.png', 256, 128);
-	game.load.spritesheet('menu_button_music', 'assets/menu/button_music.png', 32, 32);
-	game.load.spritesheet('menu_button_sound', 'assets/menu/button_sound.png', 32, 32);
-	game.load.spritesheet('menu_button_easy', 'assets/menu/button_easy.png', 128, 64);
-	game.load.spritesheet('menu_button_normal', 'assets/menu/button_normal.png', 128, 64);
-	game.load.spritesheet('menu_button_hard', 'assets/menu/button_hard.png', 128, 64);
-	game.load.spritesheet('menu_button_back', 'assets/menu/button_back.png', 128, 64);
-	game.load.spritesheet('menu_crab', 'assets/menu/crab.png', 64, 48);
+	// These are all of the assets used in the main menu.
+	var wp2 = 'assets/wonderparc2/';
+	game.load.image('menu_background', wp2 + 'menu/background.png');
+	game.load.spritesheet('menu_button_story', wp2 + 'menu/button_story.png', 256, 128);
+	game.load.spritesheet('menu_button_arcade', wp2 + 'menu/button_arcade.png', 256, 128);
+	game.load.spritesheet('menu_button_music', wp2 + 'menu/button_music.png', 32, 32);
+	game.load.spritesheet('menu_button_sound', wp2 + 'menu/button_sound.png', 32, 32);
+	game.load.spritesheet('menu_button_easy', wp2 + 'menu/button_easy.png', 128, 64);
+	game.load.spritesheet('menu_button_normal', wp2 + 'menu/button_normal.png', 128, 64);
+	game.load.spritesheet('menu_button_hard', wp2 + 'menu/button_hard.png', 128, 64);
+	game.load.spritesheet('menu_button_back', wp2 + 'menu/button_back.png', 128, 64);
+	game.load.spritesheet('menu_crab', wp2 + 'menu/crab.png', 64, 48);
+	// game.load.audio('theme', wp2 + 'audio/01_theme_song.m4a');
 	
-	// These images are used throughout story mode.
-	game.load.image('dialogue_box', 'assets/gui/dialogue.png');
+	// These assets are used throughout story mode.
+	game.load.image('dialogue_box', wp2 + 'gui/dialogue.png');
 	
-	// These images are used in the dolphin minigame.
-	game.load.image('dolphin', 'assets/dolphin/dolphin_right.png');
-	game.load.image('dolphin_ring', 'assets/dolphin/hoop.png');
+	// These assets are used in the dolphin minigame.
+	game.load.image('dolphin', wp2 + 'dolphin/dolphin_right.png');
+	game.load.image('dolphin_ring', wp2 + 'dolphin/hoop.png');
 }
 
 /*   ROOMS - A GUIDE
@@ -101,9 +103,9 @@ var charLang = ["PLAYER", "DALE", "EDWIN", "DAD", "MOM"];
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
-/* S */ var arcadePB_easy = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Personal bests on easy difficulty
+/* S */ var arcadePB_easy   = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Personal bests on easy difficulty
 /* S */ var arcadePB_normal = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Personal bests on normal difficulty
-/* S */ var arcadePB_hard = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Personal bests on hard difficulty
+/* S */ var arcadePB_hard   = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Personal bests on hard difficulty
 var score_count, score_pop, score_popTimer = -1;				// Showing score counter and pop ups ("+100")
 
 // For the dolphin game...
@@ -158,6 +160,7 @@ function create() {
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'FILE SELECT');
 			menu_subtitle.anchor.set(0.5, 0.5);
+			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
 			break;
 		case 2: // Arcade Mode menu
 			game.add.sprite(0, 0, 'menu_background');
@@ -206,6 +209,19 @@ function create() {
 		default: // Error: player visits unknown room
 			game.add.sprite(0, 0, 'menu_background');
 			menu_title = makeText(-1, -1, 0, 36, 0, "There's been...a disturbance...");
+			menu_title.anchor.set(0.5, 0.5);
+			
+			menu_crab = game.add.sprite(64, game.world.height - 80, 'menu_crab');
+			menu_crab_hide = false;
+			game.physics.arcade.enable(menu_crab);
+			menu_crab.body.collideWorldBounds = true;
+			menu_crab.inputEnabled = true;
+			menu_crab.animations.add('idle', [0], 10, false);
+			menu_crab.animations.add('walk', [1, 2], 10, true);
+			menu_crab.animations.add('hide', [0, 3, 4], 10, false);
+			menu_crab.animations.add('wake', [4, 3, 0], 10, false);
+			menu_crab.events.onInputDown.add(menuCrabHide, this);
+			game.input.onDown.add(menuCrabWalk, this);
 	}
 }
 function createGame(myGame, mode){
@@ -284,6 +300,16 @@ function storyButton(){
 function arcadeButton(){
 	// Open the arcade mode menu
 	changeRoom(1001); 
+}
+function backButton(){
+	// Go back a room or menu
+	switch(room){
+		case 1:
+			changeRoom(0);
+			break;
+		default:
+			changeRoom(room - 1);
+	}
 }
 function setDifficulty(){
 	// Switches between game difficulties (functional, yet inelegant. lol)
@@ -368,8 +394,8 @@ function menuCrabStop(){
 }
 function menuCrabCheck(){
 	if(menu_crab_walk){
-		if((menu_crab_walk == -1 && menu_crab.x + (menu_crab.width / 2) <= menu_crab_walk_point)
-		 || (menu_crab_walk == 1 && menu_crab.x + (menu_crab.width / 2) >= menu_crab_walk_point)){
+		if((menu_crab_walk === -1 && menu_crab.x + (menu_crab.width / 2) <= menu_crab_walk_point)
+		 || (menu_crab_walk === 1 && menu_crab.x + (menu_crab.width / 2) >= menu_crab_walk_point)){
 			menuCrabStop();
 		}
 		else if(menu_crab.x <= 0){
@@ -531,11 +557,11 @@ function makeText(x, y, font, size, color, myText){
 	var a = ["", "", "", "", ""];
 	
 	// The x position. "-1" is shorthand for centering horizontally.
-	if(x == -1){ a[0] = game.world.width / 2; }
+	if(x === -1){ a[0] = game.world.width / 2; }
 	else{ a[0] = x; }
 	
 	// The y position. "-1" is shorthand for centering vertically.
-	if(y == -1){ a[1] = game.world.height / 2; }
+	if(y === -1){ a[1] = game.world.height / 2; }
 	else{ a[1] = y; }
 	
 	/*   FONT
@@ -599,10 +625,18 @@ function popTimerCheck(){
 	if(score_popTimer > 0){
 		score_popTimer -= 1;
 	}
-	else if(score_popTimer == 0){
+	else if(score_popTimer === 0){
 		score_popTimer = -1;
 		score_pop.destroy();
 	}
+}
+function playSound(mySound){
+	// Checks if sound is toggled on before playing a sound
+	if(sound_toggle){ game.sound.play(mySound); }
+}
+function playMusic(myMusic){
+	// Checks if music is toggled on before playing music
+	if(music_toggle){ game.sound.play(myMusic); }
 }
 
 /*   MAIN LOOP
@@ -637,6 +671,6 @@ function update() {
 			
 		/*   ERROR   */
 		default: // Error: player visits unknown room
-			// Do nothing! It's an error.
+			menuCrabCheck();
 	}
 }
