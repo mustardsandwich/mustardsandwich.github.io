@@ -39,6 +39,9 @@ function preload() {
 	game.load.spritesheet('menu_button_easy', wp2 + 'menu/button_easy.png', 128, 64);
 	game.load.spritesheet('menu_button_normal', wp2 + 'menu/button_normal.png', 128, 64);
 	game.load.spritesheet('menu_button_hard', wp2 + 'menu/button_hard.png', 128, 64);
+	game.load.spritesheet('menu_button_new', wp2 + 'menu/button_new.png', 256, 128);
+	game.load.spritesheet('menu_button_continue', wp2 + 'menu/button_continue.png', 256, 128); 
+	game.load.spritesheet('menu_button_confirm', wp2 + 'menu/button_confirm.png', 512, 128);
 	game.load.spritesheet('menu_button_back', wp2 + 'menu/button_back.png', 128, 64);
 	game.load.spritesheet('menu_crab', wp2 + 'menu/crab.png', 64, 48);
 	// game.load.audio('theme', wp2 + 'audio/01_theme_song.m4a');
@@ -61,13 +64,14 @@ function preload() {
  *   MENU SCREENS
  *   0 : main menu
  *   1 : story mode menu
- *   2 : arcade mode menu
+ *   2 : new story mode file confirmation
+ *   3 : arcade mode menu
  *   
  *   STORY MODE
- *   (10 - 20) : CUTSCENE 1
- *      10 : scene 1
- *   (21 - 30) : OVERWORLD 1
- *      21 : far left side
+ *   (100 - 120) : CUTSCENE 1
+ *      100 : scene 1
+ *   (121 - 130) : OVERWORLD 1
+ *      121 : far left side
  *
  *   ARCADE MODE
  *   1000 : Dolphin menu
@@ -77,7 +81,7 @@ var room = 0;   					// Which room (level) are we in?
 
 /*   VARIABLES
  *   I try to declare a good amount of variables in the beginning.
- *   Variables that I preface with an S should be saved to a cookie when the player saves.
+ *   Variables that I preface with an S should be saved to the system when the player saves.
  */
 
 /* S */ var story = 0;  									// How far along you are in the story.
@@ -90,7 +94,7 @@ var menu_title, menu_subtitle;														// Title at the top of the menu
 var menu_crab, menu_crab_hide = false, menu_crab_walk = 0, menu_crab_walk_point;	// Walking crab on the main menu
 var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clickable buttons: main menu
 var menu_button_music, menu_button_sound;
-var menu_button_new, menu_button_continue, menu_button_back;						// Clickable buttons: story menu
+var menu_button_new, menu_button_continue, menu_button_back, menu_button_confirm;	// Clickable buttons: story menu
 
 // Some constants for creating games...
 var DOLPHIN = 0, SEAL = 1, OCTOPUS = 2;
@@ -160,9 +164,22 @@ function create() {
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'FILE SELECT');
 			menu_subtitle.anchor.set(0.5, 0.5);
+			menu_button_new = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_new', newButton, this, 1, 0, 1);
+			menu_button_continue = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_continue', continueButton, this, 1, 0, 1);
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
+			setDifficultyButton(difficulty);
 			break;
-		case 2: // Arcade Mode menu
+		case 2: // Story Mode file overwrite confirm
+			game.add.sprite(0, 0, 'menu_background');
+			menu_title = makeText(-1, 48, 0, 48, 0, 'CREATE A NEW SAVE FILE?');
+			menu_title.anchor.set(0.5, 0.5);
+			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'Existing progress will be erased.');
+			menu_subtitle.anchor.set(0.5, 0.5);
+			menu_button_confirm = game.add.button(game.world.width / 2 - 256, 128, 'menu_button_confirm', confirmButton, this, 1, 0, 1);
+			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
+			setDifficultyButton(difficulty);
+			break;
+		case 3: // Arcade Mode menu
 			game.add.sprite(0, 0, 'menu_background');
 			menu_title = makeText(-1, 48, 0, 64, 0, 'ARCADE MODE');
 			menu_title.anchor.set(0.5, 0.5);
@@ -173,27 +190,27 @@ function create() {
 		/*   STORY MODE SCREENS
 		 *   These screens are for the cutscenes, menus, and levels within Story Mode.
 		 */
-		case 10: // (10-20) : CUTSCENE 1
+		case 100: // (100-120) : CUTSCENE 1
 			break;
-		case 11:
+		case 101:
 			break;
-		case 12:
+		case 102:
 			break;
-		case 13:
+		case 103:
 			break;
-		case 14:
+		case 104:
 			break;
-		case 15:
+		case 105:
 			break;
-		case 16:
+		case 106:
 			break;
-		case 17:
+		case 107:
 			break;
-		case 18:
+		case 108:
 			break;
-		case 19:
+		case 109:
 			break;
-		case 20:
+		case 110:
 			break;
 			
 		/*   ARCADE MODE SCREENS
@@ -316,12 +333,12 @@ function setDifficulty(){
 	if(difficulty < 2){ difficulty += 1; }
 	else { difficulty = 0; }
 	setDifficultyButton(difficulty);
+	console.log("Difficulty set to: " + diffLang[difficulty] + ".");
 }
 function setDifficultyButton(myDiff){
 	// Switches between game difficulty buttons
 	var myString = 'menu_button_'.concat(diffLang[myDiff].toLowerCase());
 	menu_button_difficulty = game.add.button(game.world.width / 2 - 64, 272, myString, setDifficulty, this, 0, 0, 1);
-	console.log("Difficulty set to: " + diffLang[myDiff] + ".");
 }
 function toggleMusic(){
 	music_toggle = !music_toggle;
@@ -408,6 +425,24 @@ function menuCrabCheck(){
 		}
 	}
 }
+
+/*   Story Mode menu functions
+ *   These functions are for the Story Mode menu.
+ *   This is where the player can create a new save file or continue from their previous one.
+ *   Refer to the top of the code under VARIABLES to see which variables are written to memory.
+ */
+ function newButton(){
+	 // Start a new game of Story Mode. Takes you to the confirmation menu.
+	 changeRoom(2);
+ }
+ function continueButton(){
+	 // Pick up where you left off! 
+	 
+ }
+ function confirmButton(){
+	 // Are you sure that you'd like to overwrite your save file?
+	 changeRoom(-1);
+ }
 
 /*   Dolphin game functions
  *   These functions are specific to the dolphin game.
