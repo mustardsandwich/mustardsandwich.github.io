@@ -5,19 +5,33 @@
         <title> Wonderparc 2 </title>
 		<script type="text/javascript" src="js/phaser.min.js"> </script>
 		<script type="text/javascript" src="js/webfont.js"> </script>
-		<link rel="stylesheet" type="text/css" href="williamtippins.css" />
+        <link rel="stylesheet" type="text/css" href="mustardsandwich.css" />
 		<link rel="icon" type="image/png" href="favicon.ico" />
     </head>
+	
     <body>
-		<div>
-			<div><a href=""> HOME </a></div>
-			<div><a href=""> INFO </a></div>
-			<div><a href=""> GAMES </a></div>
+		<div class = "container">
+			<div class = "page_header">
+				<div class = "page_title">
+					<h1 class = "page_name"> MUSTARD SANDWICH </h1>
+					<img class="logo" src="assets/logo.png"> </img>
+				</div>
+				<ul class = "navigation">
+					<li><a href = "index.html"> HOME </a></li>
+					<li><a href = "index.html"> INFO </a></li>
+					<li><a href = "wonderparc2.html"> GAMES </a></li>
+				</ul>
+			</div>
+			
+			<!-- PAGE CONTENT -->
+			<div>
+				<h2> WONDERPARC 2 </h2>
+				<div id = "game_canvas"> </div>
+				<script src = "js/wonderparc2.js"> </script>
+				<h3> This game is a work-in-progress! </h3>
+			</div>
+			
+            <div class = "page_footer"> &copy; 2017 William Tippins </div>
 		</div>
-		
-        <h2> WONDERPARC 2 </h2>
-		<div id = "game_canvas"> </div>
-		<script src="js/wonderparc2.js"> </script>
-		<h3> &copy; 2017 William Tippins </h3>
     </body>
 </html>

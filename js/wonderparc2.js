@@ -167,7 +167,7 @@ function create() {
 			menu_button_new = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_new', newButton, this, 1, 0, 1);
 			menu_button_continue = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_continue', continueButton, this, 1, 0, 1);
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
-			setDifficultyButton(difficulty);
+			// setDifficultyButton(difficulty);
 			break;
 		case 2: // Story Mode file overwrite confirm
 			game.add.sprite(0, 0, 'menu_background');
@@ -177,7 +177,7 @@ function create() {
 			menu_subtitle.anchor.set(0.5, 0.5);
 			menu_button_confirm = game.add.button(game.world.width / 2 - 256, 128, 'menu_button_confirm', confirmButton, this, 1, 0, 1);
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
-			setDifficultyButton(difficulty);
+			// setDifficultyButton(difficulty);
 			break;
 		case 3: // Arcade Mode menu
 			game.add.sprite(0, 0, 'menu_background');

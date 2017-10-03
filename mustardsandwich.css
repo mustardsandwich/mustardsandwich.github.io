@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* MUSTARD SANDWICH STYLESHEET */
+
+@font-face {
+	/* Here I import custom fonts to be used in pages or games. */
+	font-family: "Tippins";
+	src: url('assets/tippins.ttf');
+}
+
+/* The following styles are used on most pages and are VERY IMPORTANT. */
+body {
+    background-color: #000000;
+}
+.container{
+     max-width: 900px;
+     margin-left: auto;
+     margin-right: auto;
+}
+.page_header{
+	width: 100%;
+	height: 100%;
+}
+.page_title{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.page_name{
+	float: left;
+	font-size: 48px;
+	font-weight: 400;
+	font-family: "Tippins";
+	color: #FFFF00;
+	margin: 2px;
+}
+.page_footer{
+	margin: 0px;
+	padding: 0.25em;
+	color: white;
+	font-family: "Comic Sans MS";
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	background-color: rgba(159, 159, 159, 1);
+	clear: left;
+	bottom: 100%;
+}
+p{
+	margin: 1em;
+	color: white;
+	font-family: "Comic Sans MS";
+	font-size: 16px;
+}
+
+/* These are the buttons in the header of the site. */
+li a {
+	color: #FFFFFF;
+	background-color: rgba(159, 159, 159, 1);
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	width: 33.3333%;
+	display: inline-block;
+	float: left;
+	margin: 0 auto;
+	padding: 0px;
+	text-decoration: none;
+	text-align: center;
+}
+li a:hover {
+	color: #FFFF00;
+	background-color: rgba(127, 127, 127, 1);
+}
+
+/* These are mostly used on the pages with games on them. */
+h2 {
+	font-family: "Comic Sans MS";
+	font-size: 36px;
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+}
+canvas {
+	display: block;
+	margin: 0 auto;
+	border-style: groove;
+	border-color: #FFFFFF;
+	border-width: 3px;
+}
+h3 {
+	font-family: "Comic Sans MS";
+	font-size: 16px;
+	font-style: italic;
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* This code should make the navigation bar play nice on mobile devices. */
+@media screen and (min-width: 600px) {
+	.logo{
+		display: block;
+		width: 100px;
+		height: 100px;
+		float: right;
+	}
+}
+@media screen and (max-width: 599px) {
+	.logo{
+		display: none;
+		width: 100px;
+		height: 100px;
+		float: right;
+	}
+}
+@media screen and (min-width: 900px) {
+	.navigation{
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+		overflow: auto;
+		width: 900px;
+	}
+}
+@media screen and (max-width: 899px) {
+	.navigation{
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+		overflow: auto;
+		width: 100%;
+	}
+}
