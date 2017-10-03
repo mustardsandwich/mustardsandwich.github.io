@@ -101,16 +101,16 @@ h3 {
 @media screen and (min-width: 600px) {
 	.logo{
 		display: block;
-		width: 100px;
-		height: 100px;
+		width: 96px;
+		height: 96px;
 		float: right;
 	}
 }
 @media screen and (max-width: 599px) {
 	.logo{
 		display: none;
-		width: 100px;
-		height: 100px;
+		width: 96px;
+		height: 96px;
 		float: right;
 	}
 }
