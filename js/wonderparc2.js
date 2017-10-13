@@ -107,14 +107,13 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
 // Loading dialogue file as a variable...
 var dialogue = new XMLHttpRequest();
-dialogue.open("GET", "http://localhost/assets/wonderparc2/script/wonderparc2.txt");
-dialogue.send;
-// while (dialogue.indexOf("\r") >= 0){ dialogue = dialogue.replace("\r", ""); }
-var charLines = dialogue.responseText.split("\n");
-for(x = 0; x < charLines.length; x++){
-	console.log(charLines[x]);
-}
-console.log("Loaded dialogue file with " + charLines.length + " lines!");
+dialogue.open("GET", "file://assets/wonderparc2/script/wonderparc2.txt", true);
+dialogue.onload = function () {
+	var charLines = dialogue.responseText.split("\n");
+	for(x = 0; x < charLines.length; x++){ console.log(charLines[x]); }
+	console.log("Loaded dialogue file with " + charLines.length + " lines!");
+};
+dialogue.send();
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
