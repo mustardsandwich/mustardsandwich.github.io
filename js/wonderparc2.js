@@ -48,6 +48,7 @@ function preload() {
 	
 	// These assets are used throughout story mode.
 	game.load.image('dialogue_box', wp2 + 'gui/dialogue.png');
+	game.load.image('martinez_chathead', wp2 + 'gui/martinez.png');
 	
 	// These assets are used in the dolphin minigame.
 	game.load.image('dolphin', wp2 + 'dolphin/dolphin_right.png');
@@ -102,8 +103,18 @@ var SHRIMP = 3, LOBSTER = 4, MANTA = 5;
 var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 
 // For story mode...
-// Some constants for creating character dialogue:
-var charLang = ["PLAYER", "DALE", "EDWIN", "DAD", "MOM"];
+// Creating character dialogue...
+var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
+// Loading dialogue file as a variable...
+var dialogue = new XMLHttpRequest();
+dialogue.open("GET", "http://localhost/assets/wonderparc2/script/wonderparc2.txt");
+dialogue.send;
+// while (dialogue.indexOf("\r") >= 0){ dialogue = dialogue.replace("\r", ""); }
+var charLines = dialogue.responseText.split("\n");
+for(x = 0; x < charLines.length; x++){
+	console.log(charLines[x]);
+}
+console.log("Loaded dialogue file with " + charLines.length + " lines!");
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -623,12 +634,16 @@ function makeText(x, y, font, size, color, myText){
 	 *   Here's a quick reference:
 	 *   
 	 *   0 : BLUE #00F
+	 *   1 : BLACK #000
 	 *
 	 *   The color defaults to blue.
 	 */
 	switch(color){
 		case 0:
 			a[4] = "#00F";
+			break;
+		case 1:
+			a[4] = "#000";
 			break;
 		default:
 			a[4] = "#00F";
@@ -637,13 +652,22 @@ function makeText(x, y, font, size, color, myText){
 	return game.add.text(a[0], a[1], myText, { font: a[3], fill: a[4] });
 	// To center, use .anchor.set(0.5, 0.5)
 }
-function dialogue(character, fileStart, fileEnd){
-	// Get and display character name
-	var charName = charLang[character];
+function dialogue(lineNumber){
+	myLine = charLines[lineNumber];
 	
-	// Draw character chathead
-	var charHead = charName.toLowerCase();
-
+	// Draw character chathead from character name
+	var charName = myLine.substring(0, myLine.indexOf(':')).toLowerCase();
+	var charHead = charName + "_chathead";
+	dialogue_box = game.add.sprite(0, game.world.height - 200, 'dialogue_box');
+	dialogue_head = game.add.sprite(20, game.world.height - 180, charHead);
+	dialogue_header = makeText(10, game.world.height - 190, 0, 24, 1, charName.toUpperCase());
+	
+	// How many lines to print on the dialogue box.
+	var linesNeeded = (charLines[lineNumber].length() / 50) + 1;
+	for(x = 0; x < linesNeeded; x++){
+		myLine = charLines[lineNumber].substring(x * 50, (x * 50) + 50);
+		dialogue_text[x] = makeText(160, 440 + (y * 32), 0, 24, 1, myLine);
+	}
 }
 function makeScore(doScorePop, x, y, myScore, myTotal){
 	// Displays score added at a point ("+100")
