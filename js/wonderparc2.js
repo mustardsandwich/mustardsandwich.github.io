@@ -106,6 +106,7 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
 var zd = $.getJSON("assets/wonderparc2/script.json");
+console.log(zd);
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
