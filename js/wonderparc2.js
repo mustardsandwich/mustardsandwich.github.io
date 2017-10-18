@@ -105,7 +105,7 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // For story mode...
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-var dialogue = $.getJSON("assets/wonderparc2/script.json");
+var zd = $.getJSON("assets/wonderparc2/script.json");
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -438,8 +438,9 @@ function menuCrabCheck(){
 	 changeRoom(2);
  }
  function continueButton(){
-	 // Pick up where you left off! 
-	 
+	 // Pick up where you left off! (This is a placeholder for now.)
+	 dialogue("opening", 1);
+	 dialogue("opening", 0);
  }
  function confirmButton(){
 	 // Are you sure that you'd like to overwrite your save file?
@@ -643,21 +644,21 @@ function makeText(x, y, font, size, color, myText){
 	return game.add.text(a[0], a[1], myText, { font: a[3], fill: a[4] });
 	// To center, use .anchor.set(0.5, 0.5)
 }
-function dialogue(lineNumber){
-	myLine = charLines[lineNumber];
+function dialogue(scriptName, lineNumber){
+	myLine = zd.dialogue.scriptName[lineNumber].text;
 	
 	// Draw character chathead from character name
-	var charName = myLine.substring(0, myLine.indexOf(':')).toLowerCase();
+	var charName = zd.dialogue.scriptName[lineNumber].id.toLowerCase();
 	var charHead = charName + "_chathead";
 	dialogue_box = game.add.sprite(0, game.world.height - 200, 'dialogue_box');
 	dialogue_head = game.add.sprite(20, game.world.height - 180, charHead);
 	dialogue_header = makeText(10, game.world.height - 190, 0, 24, 1, charName.toUpperCase());
 	
 	// How many lines to print on the dialogue box.
-	var linesNeeded = (charLines[lineNumber].length() / 50) + 1;
+	var linesNeeded = (myLine.length() / 50) + 1;
 	for(x = 0; x < linesNeeded; x++){
-		myLine = charLines[lineNumber].substring(x * 50, (x * 50) + 50);
-		dialogue_text[x] = makeText(160, 440 + (y * 32), 0, 24, 1, myLine);
+		myDialogue = myLine.substring(x * 50, (x * 50) + 50);
+		dialogue_text[x] = makeText(160, 440 + (y * 32), 0, 24, 1, myDialogue);
 	}
 }
 function makeScore(doScorePop, x, y, myScore, myTotal){
