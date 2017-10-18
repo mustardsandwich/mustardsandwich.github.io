@@ -439,8 +439,8 @@ function menuCrabCheck(){
  }
  function continueButton(){
 	 // Pick up where you left off! (This is a placeholder for now.)
-	 dialogue("opening", 1);
-	 dialogue("opening", 0);
+	 dialogue(0, 1);
+	 dialogue(0, 0);
  }
  function confirmButton(){
 	 // Are you sure that you'd like to overwrite your save file?
