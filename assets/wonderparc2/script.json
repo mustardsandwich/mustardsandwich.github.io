@@ -1,11 +1,11 @@
 {
 	"dialogue": [
-		"opening": [
+		[
 			{"id" : "Martinez", "text" : "This is a test! Testing, testing."},
 			{"id" : "Martinez", "text" : "How long can dialogue be? I'm curious how long I can make this line and have it still be read. Please God I hope this works. I am at the end of my wits."},
 			{"id" : "Dale", "text" : "Yee-haw!"}
 		],
-		"dolphin_tutorial": [
+		[
 			{"id" : "Martinez", "text" : "Use the mouse to move the dolphin."},
 			{"id" : "Martinez", "text" : "Get the rings for points."}
 		]
