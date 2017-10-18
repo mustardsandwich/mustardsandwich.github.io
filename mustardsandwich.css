@@ -1,8 +1,12 @@
 @charset "utf-8";
 /* MUSTARD SANDWICH STYLESHEET */
 
+/* Here I import custom fonts to be used in pages or games. */
 @font-face {
-	/* Here I import custom fonts to be used in pages or games. */
+	font-family: "Comic Neue Bold";
+	src: url('assets/comicneuebold.ttf');
+}
+@font-face {
 	font-family: "Tippins";
 	src: url('assets/tippins.ttf');
 }
@@ -32,14 +36,14 @@ body {
 	font-size: 48px;
 	font-weight: 400;
 	font-family: "Tippins";
-	color: #FFFF00;
+	color: rgba(255, 239, 0, 1);
 	margin: 2px;
 }
 .page_footer{
 	margin: 0px;
 	padding: 0.25em;
 	color: white;
-	font-family: "Comic Sans MS";
+	font-family: "Comic Neue Bold";
 	font-weight: 500;
 	font-size: 16px;
 	text-align: center;
@@ -50,15 +54,21 @@ body {
 p{
 	margin: 1em;
 	color: white;
-	font-family: "Comic Sans MS";
-	font-size: 16px;
+	font-family: "Comic Neue Bold";
+	font-size: 20px;
+}
+p a{
+	color: rgba(255, 239, 0, 1);
+}
+p a:hover {
+	color: red;
 }
 
 /* These are the buttons in the header of the site. */
 li a {
 	color: #FFFFFF;
 	background-color: rgba(159, 159, 159, 1);
-	font-family: "Comic Sans MS";
+	font-family: "Comic Neue Bold";
 	font-size: 24px;
 	width: 33.3333%;
 	display: inline-block;
@@ -69,13 +79,13 @@ li a {
 	text-align: center;
 }
 li a:hover {
-	color: #FFFF00;
+	color: rgba(255, 239, 0, 1);
 	background-color: rgba(127, 127, 127, 1);
 }
 
 /* These are mostly used on the pages with games on them. */
 h2 {
-	font-family: "Comic Sans MS";
+	font-family: "Comic Neue Bold";
 	font-size: 36px;
 	color: #FFFFFF;
 	margin: 0 auto;
@@ -89,7 +99,7 @@ canvas {
 	border-width: 3px;
 }
 h3 {
-	font-family: "Comic Sans MS";
+	font-family: "Comic Neue Bold";
 	font-size: 16px;
 	font-style: italic;
 	color: #FFFFFF;
