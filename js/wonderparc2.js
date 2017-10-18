@@ -644,11 +644,12 @@ function makeText(x, y, font, size, color, myText){
 	return game.add.text(a[0], a[1], myText, { font: a[3], fill: a[4] });
 	// To center, use .anchor.set(0.5, 0.5)
 }
-function dialogue(scriptName, lineNumber){
-	myLine = zd.dialogue.scriptName[lineNumber].text;
+function dialogue(myScript, lineNumber){
+	// Here we fetch the line of dialogue by searching for the script, then the line number.
+	myLine = zd.dialogue[myScript][lineNumber].text;
 	
 	// Draw character chathead from character name
-	var charName = zd.dialogue.scriptName[lineNumber].id.toLowerCase();
+	var charName = zd.dialogue[myScript][lineNumber].id.toLowerCase();
 	var charHead = charName + "_chathead";
 	dialogue_box = game.add.sprite(0, game.world.height - 200, 'dialogue_box');
 	dialogue_head = game.add.sprite(20, game.world.height - 180, charHead);
