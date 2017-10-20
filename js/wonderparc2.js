@@ -77,6 +77,10 @@ function preload() {
  *   ARCADE MODE
  *   1000 : Dolphin menu
  *   1001 : Dolphin game
+ *   1100 : Seal menu
+ *   1101 : Seal game
+ *   1200 : Octopus menu
+ *   1201 : Octopus game
  */
 var room = 0;   					// Which room (level) are we in?
 
@@ -121,6 +125,17 @@ var dolphin;																// The dolphin that you control
 var dolphin_health, dolphin_maxHealth, dolphin_healthCt;					// Health of the dolphin
 var dolphin_regen, dolphin_regenVal, dolphin_regenCt;						// Regen status of the dolphin
 var dolphin_ring, dolphin_ringSpeed, dolphin_ringVal;						// The ring that you must go through
+
+// For the seal game...
+var seal_score;
+var seal;
+
+// For the octopus game...
+var octopus_score;
+var octopus;
+var octopus_state, octopus_progress;
+var octopus_health, octopus_maxHealth, octopus_healthCt;
+var octopus_whelk, octopus_whelkSpeed, octopus_whelkVal;
 
 /*   CREATE FUNCTIONS
  *   This is the function that initially draws everything on the screen for each room.
@@ -219,8 +234,20 @@ function create() {
 		/*   ARCADE MODE SCREENS
 		 *   The following menus and levels are used for Arcade Mode.
 		 */
+		case 1000: // Dolphin menu
+			break;
 		case 1001: // Dolphin game
 			createGame(DOLPHIN, 1);
+			break;
+		case 1100: // Seal menu
+			break;
+		case 1101: // Seal game
+			createGame(SEAL, 1);
+			break;
+		case 1200: // Octopus menu
+			break;
+		case 1201: // Octopus game
+			createGame(OCTOPUS, 1);
 			break;
 			
 		/*   ERROR
@@ -300,6 +327,13 @@ function createGame(myGame, mode){
 		case SEAL:
 			break;
 		case OCTOPUS:
+			switch(difficulty){
+				case 0:
+					break;
+				case 2:
+					break;
+				default:
+			}
 			break;
 		default:
 			changeRoom(-1);
