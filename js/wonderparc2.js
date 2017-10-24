@@ -613,6 +613,13 @@ function sealMove(){
 	
 }
  
+/*   Octopus game functions
+ *   These functions are specific to the octopus game.
+ */
+function octopusMove(){
+	
+}
+ 
 /*   General functions
  *   These functions are useful throughout the code.
  *   They perform important processes and make life easier all around. :)
