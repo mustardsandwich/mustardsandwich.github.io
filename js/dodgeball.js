@@ -5,7 +5,7 @@
  *   It doesn't use an engine or anything and just refreshes after you win.
  *   Also, you can literally just stand in the bottom right corner for most of the levels.
  */
-var canvas = document.getElementById("game_canvas");
+var canvas = document.getElementById("dodgeball_canvas");
 var ctx = canvas.getContext("2d");
 
 /*   LOADING A CUSTOM FONT
@@ -273,6 +273,7 @@ function levelMessage(level_message) {
 // Key event handlers
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+// document.addEventListener("", , false);
 
 function keyDownHandler(e) {
 	if(e.keyCode == 37 || e.keyCode == 65) {
@@ -289,6 +290,16 @@ function keyUpHandler(e) {
 	}
 	else if(e.keyCode == 39 || e.keyCode == 68) {
 		rightPressed = false;
+	}
+}
+
+function getTouchPos(e){
+	if(!e){ var e = event; }
+	if(e.touches){
+		if(e.touches.length == 1){
+			var touch = e.touches[0];
+			var touch_x = touch.pageX - touch.target.offsetLeft;
+		}
 	}
 }
 
