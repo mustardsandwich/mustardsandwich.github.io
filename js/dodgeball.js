@@ -81,9 +81,7 @@ function game_loop() {
 		level++;
 	}
 	
-	if(level == 6){
-		document.location.reload();
-	}
+	// if(level == 6){ document.location.reload(); }
 }
 
 function drawBall() {

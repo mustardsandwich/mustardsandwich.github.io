@@ -71,17 +71,20 @@ function update() {
 	if(jumper.x < -jumper.width){ jumper.x = game.world.width; }
 	
 	// Jumper movement
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)
+	|| game.input.keyboard.isDown(Phaser.Keyboard.A)){
 		jumper_xstate = 0;
 		jumper.body.velocity.x = -jumper_speed;
 	}
-	else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+	else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)
+		 || game.input.keyboard.isDown(Phaser.Keyboard.D)){
 		jumper_xstate = 1;
 		jumper.body.velocity.x = jumper_speed;
 	}
 	
 	// Jumper jumping
-	if(game.input.keyboard.isDown(Phaser.Keyboard.UP) && jumper_ystate === 0){
+	if((game.input.keyboard.isDown(Phaser.Keyboard.UP)
+     || game.input.keyboard.isDown(Phaser.Keyboard.W)) && jumper_ystate === 0){
 		jumper_ystate = 1;
 		jumper.body.velocity.y = -800;
 		jumper.body.gravity.y = 1500;
