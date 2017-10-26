@@ -53,6 +53,11 @@ function preload() {
 	// These assets are used in the dolphin minigame.
 	game.load.image('dolphin', wp2 + 'dolphin/dolphin_right.png');
 	game.load.image('dolphin_ring', wp2 + 'dolphin/hoop.png');
+	
+	// These assets are used in the seal minigame.
+	
+	// These assets are used in the octopus minigame.
+	game.load.image('octopus', wp2 + 'octopus/octopus.png');
 }
 
 /*   ROOMS - A GUIDE
@@ -334,6 +339,21 @@ function createGame(myGame, mode){
 					break;
 				default:
 			}
+			
+			// Establish background, health, and score.
+			octopus_score = 0;
+			octopus_health = octopus_maxHealth;
+			game.add.sprite(0, 0, 'menu_background');
+			
+			// Octopus configuration
+			octopus = game.add.sprite(0, 0, 'octopus');
+			octopus.x = (game.world.width - octopus.width) / 2;
+			octopus.y = (game.world.height - octopus.height) / 2;
+			game.physics.arcade.enable(octopus);
+			octopus.body.collideWorldBounds = true;
+			octopus.body.checkCollisions = true;
+			octopus.body.immovable = true;
+			octopus.inputEnabled = true;
 			break;
 		default:
 			changeRoom(-1);
@@ -353,7 +373,7 @@ function storyButton(){
 }
 function arcadeButton(){
 	// Open the arcade mode menu
-	changeRoom(1001); 
+	changeRoom(1201); 
 }
 function backButton(){
 	// Go back a room or menu
@@ -617,7 +637,8 @@ function sealMove(){
  *   These functions are specific to the octopus game.
  */
 function octopusMove(){
-	
+	octopus.x = game.input.mousePointer.x - (octopus.width / 2);
+	octopus.y = game.input.mousePointer.y - (octopus.height / 2);
 }
  
 /*   General functions
@@ -761,6 +782,11 @@ function update() {
 			if(dolphin_ring.x + dolphin_ring.width < 0){
 				dolphinLoseRing();
 			}
+			break;
+		case 1101: // Seal game
+			break;
+		case 1201: // Octopus game
+			octopusMove();
 			break;
 			
 		/*   ERROR   */
