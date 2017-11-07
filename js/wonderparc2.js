@@ -354,6 +354,7 @@ function createGame(myGame, mode){
 			octopus.body.checkCollisions = true;
 			octopus.body.immovable = true;
 			octopus.inputEnabled = true;
+			// game.input.onDown.add(octopusMove, this);
 			break;
 		default:
 			changeRoom(-1);
@@ -637,8 +638,30 @@ function sealMove(){
  *   These functions are specific to the octopus game.
  */
 function octopusMove(){
-	octopus.x = game.input.mousePointer.x - (octopus.width / 2);
-	octopus.y = game.input.mousePointer.y - (octopus.height / 2);
+	destX = game.input.mousePointer.x - (octopus.width / 2);
+	destY = game.input.mousePointer.y - (octopus.height / 2);
+	distX = Math.abs(destX - octopus.x);
+	distY = Math.abs(destY - octopus.y);
+	
+	if(distX > 10 || distY > 10){
+		game.physics.arcade.moveToXY(octopus, destX, destY, 400);
+	}
+	else{
+		octopus.body.velocity.x = 0;
+		octopus.body.velocity.y = 0;
+	}
+}
+function octopusFriction(){
+	octopus_friction_x = octopus.body.velocity.x / Math.abs(octopus.body.velocity.x) * -8; 
+	octopus_friction_y = octopus.body.velocity.y / Math.abs(octopus.body.velocity.y) * -8;
+	
+	if(octopus.body.velocity.x != 0){
+		octopus.body.velocity.x += octopus_friction_x;
+	}
+	
+	if(octopus.body.velocity.y != 0){
+		octopus.body.velocity.y += octopus_friction_y
+	}
 }
  
 /*   General functions
@@ -786,7 +809,8 @@ function update() {
 		case 1101: // Seal game
 			break;
 		case 1201: // Octopus game
-			octopusMove();
+			if(game.input.mousePointer.isDown){ octopusMove(); }
+			octopusFriction();
 			break;
 			
 		/*   ERROR   */
