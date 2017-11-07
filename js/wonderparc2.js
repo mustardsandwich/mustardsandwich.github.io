@@ -136,8 +136,7 @@ var seal_score;
 var seal;
 
 // For the octopus game...
-var octopus_score;
-var octopus;
+var octopus, octopus_score;
 var octopus_state, octopus_progress;
 var octopus_health, octopus_maxHealth, octopus_healthCt;
 var octopus_whelk, octopus_whelkSpeed, octopus_whelkVal;
@@ -637,13 +636,13 @@ function sealMove(){
 /*   Octopus game functions
  *   These functions are specific to the octopus game.
  */
-function octopusMove(){
+function octopusMove(mouseDown){
 	destX = game.input.mousePointer.x - (octopus.width / 2);
 	destY = game.input.mousePointer.y - (octopus.height / 2);
 	distX = Math.abs(destX - octopus.x);
 	distY = Math.abs(destY - octopus.y);
 	
-	if(distX > 10 || distY > 10){
+	if(mouseDown && (distX > 10 || distY > 10)){
 		game.physics.arcade.moveToXY(octopus, destX, destY, 400);
 	}
 	else{
@@ -656,11 +655,23 @@ function octopusFriction(){
 	octopus_friction_y = octopus.body.velocity.y / Math.abs(octopus.body.velocity.y) * -8;
 	
 	if(octopus.body.velocity.x != 0){
-		octopus.body.velocity.x += octopus_friction_x;
+		if(Math.abs(octopus.body.velocity.x) >= octopus_friction_x){
+			octopus.body.velocity.x += octopus_friction_x;
+		}
+		else{
+			octopus.body.velocity.x = 0;
+			octopus.body.velocity.y = 0;
+		}
 	}
 	
 	if(octopus.body.velocity.y != 0){
-		octopus.body.velocity.y += octopus_friction_y
+		if(Math.abs(octopus.body.velocity.y) >= octopus_friction_y){
+			octopus.body.velocity.y += octopus_friction_y;
+		}
+		else{
+			octopus.body.velocity.x = 0;
+			octopus.body.velocity.y = 0;
+		}
 	}
 }
  
@@ -809,7 +820,7 @@ function update() {
 		case 1101: // Seal game
 			break;
 		case 1201: // Octopus game
-			if(game.input.mousePointer.isDown){ octopusMove(); }
+			octopusMove(game.input.mousePointer.isDown);
 			octopusFriction();
 			break;
 			
