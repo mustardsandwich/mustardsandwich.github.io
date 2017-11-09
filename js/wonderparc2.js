@@ -106,6 +106,8 @@ var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clicka
 var menu_button_music, menu_button_sound;
 var menu_button_new, menu_button_continue, menu_button_back, menu_button_confirm;	// Clickable buttons: story menu
 
+var arcade_dolphin, arcade_seal, arcade_octopus;
+
 // Some constants for creating games...
 var DOLPHIN = 0, SEAL = 1, OCTOPUS = 2;
 var SHRIMP = 3, LOBSTER = 4, MANTA = 5;
@@ -113,9 +115,9 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 
 // For story mode...
 // Creating character dialogue...
-var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-var zd = JSON.parse($.getJSON("assets/wonderparc2/script.json").responseText);
-console.log(zd);
+// var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
+// var zd = JSON.parse($.getJSON("assets/wonderparc2/script.json").responseText);
+// console.log(zd);
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -207,6 +209,10 @@ function create() {
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'GAME SELECT');
 			menu_subtitle.anchor.set(0.5, 0.5);
+			arcade_dolphin = game.add.button(64, 128, 'dolphin', arcadePlayDolphin, this, 0, 0, 0);
+			arcade_octopus = game.add.button(450, 108, 'octopus', arcadePlayOctopus, this, 0, 0, 0);
+			setDifficultyButton(difficulty);
+			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
 			break;
 			
 		/*   STORY MODE SCREENS
@@ -373,12 +379,15 @@ function storyButton(){
 }
 function arcadeButton(){
 	// Open the arcade mode menu
-	changeRoom(1201); 
+	changeRoom(3); 
 }
 function backButton(){
 	// Go back a room or menu
 	switch(room){
 		case 1:
+			changeRoom(0);
+			break;
+		case 3:
 			changeRoom(0);
 			break;
 		default:
@@ -481,6 +490,16 @@ function menuCrabCheck(){
 			menu_crab.x = game.world.width - menu_crab.width - 1;
 		}
 	}
+}
+
+/*   Arcade menu functions
+ *   These are for the buttons for selecting minigames from the arcade menu.
+ */
+function arcadePlayDolphin(){
+	changeRoom(1001);
+}
+function arcadePlayOctopus(){
+	changeRoom(1201);
 }
 
 /*   Story Mode menu functions
