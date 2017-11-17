@@ -115,9 +115,8 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 
 // For story mode...
 // Creating character dialogue...
-// var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-// var zd = JSON.parse($.getJSON("assets/wonderparc2/script.json").responseText);
-// console.log(zd);
+var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
+readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -279,6 +278,8 @@ function create() {
 			menu_crab.animations.add('wake', [4, 3, 0], 10, false);
 			menu_crab.events.onInputDown.add(menuCrabHide, this);
 			game.input.onDown.add(menuCrabWalk, this);
+			
+			dialogue("Martinez", "Hello hello! This is a test message. Please disregard this message it is just a test hahahaha.");
 	}
 }
 function createGame(myGame, mode){
@@ -760,23 +761,22 @@ function makeText(x, y, font, size, color, myText){
 	return game.add.text(a[0], a[1], myText, { font: a[3], fill: a[4] });
 	// To center, use .anchor.set(0.5, 0.5)
 }
-function dialogue(myScript, lineNumber){
-	// Here we fetch the line of dialogue by searching for the script, then the line number.
-	myLine = zd.dialogue[myScript][lineNumber].text;
-	
+function dialogue(charName, myLine){
 	// Draw character chathead from character name
-	var charName = zd.dialogue[myScript][lineNumber].id.toLowerCase();
-	var charHead = charName + "_chathead";
-	dialogue_box = game.add.sprite(0, game.world.height - 200, 'dialogue_box');
-	dialogue_head = game.add.sprite(20, game.world.height - 180, charHead);
-	dialogue_header = makeText(10, game.world.height - 190, 0, 24, 1, charName.toUpperCase());
+	var charHead = charName.toLowerCase() + "_chathead";
+	dialogue_box = game.add.sprite(10, game.world.height - 200, 'dialogue_box');
+	dialogue_head = game.add.sprite(35, game.world.height - 155, charHead);
+	dialogue_header = makeText(25, game.world.height - 190, 0, 36, 1, charName.toUpperCase());
 	
 	// How many lines to print on the dialogue box.
-	var linesNeeded = (myLine.length() / 50) + 1;
-	for(x = 0; x < linesNeeded; x++){
-		myDialogue = myLine.substring(x * 50, (x * 50) + 50);
-		dialogue_text[x] = makeText(160, 440 + (y * 32), 0, 24, 1, myDialogue);
+	var linesNeeded = (myLine.length / 50) + 1;
+	for(y = 0; y < linesNeeded; y++){
+		myDialogue = myLine.substring(y * 50, (y * 50) + 50);
+		dialogue_text[y] = makeText(190, 335 + (y * 32), 0, 22, 1, myDialogue);
 	}
+}
+function dialogueTree(){
+	
 }
 function makeScore(doScorePop, x, y, myScore, myTotal){
 	// Displays score added at a point ("+100")
@@ -805,6 +805,20 @@ function playSound(mySound){
 function playMusic(myMusic){
 	// Checks if music is toggled on before playing music
 	if(music_toggle){ game.sound.play(myMusic); }
+}
+function readTextFile(file){
+	// Thanks to Majid Laissi on Stack Exchange for this
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function (){
+        if(rawFile.readyState === 4){
+            if(rawFile.status === 200 || rawFile.status == 0){
+                var allText = rawFile.responseText;
+                console.log(allText);
+            }
+        }
+    }
+    rawFile.send(null);
 }
 
 /*   MAIN LOOP
