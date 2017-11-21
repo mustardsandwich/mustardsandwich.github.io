@@ -116,7 +116,8 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // For story mode...
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-var wp2_script = readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt").split("\n");
+var rawscript = readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
+var wp2_script = rawscript.split("\n");
 console.log(wp2_script);
 
 // For arcade mode...
@@ -822,11 +823,11 @@ function readTextFile(file){
             if(rawFile.status === 200 || rawFile.status == 0){
                 var allText = rawFile.responseText;
                 // console.log(allText);
-				return allText;
             }
         }
     }
     rawFile.send(null);
+	return allText;
 }
 
 /*   MAIN LOOP
