@@ -116,7 +116,8 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // For story mode...
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
+var wp2_script = readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt").split("\n");
+console.log(wp2_script);
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -279,7 +280,7 @@ function create() {
 			menu_crab.events.onInputDown.add(menuCrabHide, this);
 			game.input.onDown.add(menuCrabWalk, this);
 			
-			dialogue("Martinez", "Hello hello! This is a test message. Please disregard this message it is just a test hahahaha.");
+			makeDialogue(1, 5);
 	}
 }
 function createGame(myGame, mode){
@@ -761,7 +762,7 @@ function makeText(x, y, font, size, color, myText){
 	return game.add.text(a[0], a[1], myText, { font: a[3], fill: a[4] });
 	// To center, use .anchor.set(0.5, 0.5)
 }
-function dialogue(charName, myLine){
+function dialogue(charName, myLines){
 	// Draw character chathead from character name
 	var charHead = charName.toLowerCase() + "_chathead";
 	dialogue_box = game.add.sprite(10, game.world.height - 200, 'dialogue_box');
@@ -769,11 +770,17 @@ function dialogue(charName, myLine){
 	dialogue_header = makeText(25, game.world.height - 190, 0, 36, 1, charName.toUpperCase());
 	
 	// How many lines to print on the dialogue box.
-	var linesNeeded = (myLine.length / 50) + 1;
+	var linesNeeded = myLines.length;
 	for(y = 0; y < linesNeeded; y++){
-		myDialogue = myLine.substring(y * 50, (y * 50) + 50);
+		myDialogue = myLines[y];
 		dialogue_text[y] = makeText(190, 335 + (y * 32), 0, 22, 1, myDialogue);
 	}
+}
+function makeDialogue(x, y){
+	// x and y are the line numbers within the script file,
+	// where the first line x is the character name and y is the final line of dialogue.
+	myDialogue = wp2_script.slice(x - 1, y);
+	return dialogue(wp2_script[x - 1], myDialogue);
 }
 function dialogueTree(){
 	
@@ -814,7 +821,8 @@ function readTextFile(file){
         if(rawFile.readyState === 4){
             if(rawFile.status === 200 || rawFile.status == 0){
                 var allText = rawFile.responseText;
-                console.log(allText);
+                // console.log(allText);
+				return allText;
             }
         }
     }
