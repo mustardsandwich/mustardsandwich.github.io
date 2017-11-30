@@ -116,9 +116,8 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // For story mode...
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
-var rawscript = readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
-var wp2_script = rawscript.split("\n");
-console.log(wp2_script);
+var wp2_script;
+readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
@@ -780,7 +779,7 @@ function dialogue(charName, myLines){
 function makeDialogue(x, y){
 	// x and y are the line numbers within the script file,
 	// where the first line x is the character name and y is the final line of dialogue.
-	myDialogue = wp2_script.slice(x - 1, y);
+	myDialogue = wp2_script.slice(x, y);
 	return dialogue(wp2_script[x - 1], myDialogue);
 }
 function dialogueTree(){
@@ -821,9 +820,7 @@ function readTextFile(file){
     rawFile.onreadystatechange = function (){
         if(rawFile.readyState === 4){
             if(rawFile.status === 200 || rawFile.status == 0){
-                var allText = rawFile.responseText;
-                // console.log(allText);
-				return allText;
+                wp2_script = rawFile.responseText.split("\n");
             }
         }
     }
