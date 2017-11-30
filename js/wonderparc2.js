@@ -107,6 +107,8 @@ var menu_button_music, menu_button_sound;
 var menu_button_new, menu_button_continue, menu_button_back, menu_button_confirm;	// Clickable buttons: story menu
 
 var arcade_dolphin, arcade_seal, arcade_octopus;
+var arcade_shrimp, arcade_lobster, arcade_manta;
+var arcade_walrus, arcade_polar, arcade_penguin;
 
 // Some constants for creating games...
 var DOLPHIN = 0, SEAL = 1, OCTOPUS = 2;
