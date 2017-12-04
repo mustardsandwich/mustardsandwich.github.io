@@ -58,6 +58,7 @@ function preload() {
 	
 	// These assets are used in the octopus minigame.
 	game.load.image('octopus', wp2 + 'octopus/octopus.png');
+	game.load.image('plankton', wp2 + 'octopus/plankton.png');
 }
 
 /*   ROOMS - A GUIDE
@@ -141,9 +142,9 @@ var seal;
 
 // For the octopus game...
 var octopus, octopus_score;
-var octopus_state, octopus_progress;
 var octopus_health, octopus_maxHealth, octopus_healthCt;
-var octopus_whelk, octopus_whelkSpeed, octopus_whelkVal;
+var octopus_regen, octopus_regenVal, octopus_regenCt;
+var octopus_plankton, octopus_planktonSpeed, octopus_planktonVal;
 
 /*   CREATE FUNCTIONS
  *   This is the function that initially draws everything on the screen for each room.
@@ -343,16 +344,32 @@ function createGame(myGame, mode){
 		case OCTOPUS:
 			switch(difficulty){
 				case 0:
+					octopus_planktonSpeed = 3;
+					octopus_planktonVal = 75;
+					octopus_maxHealth = 3;
+					octopus_regenVal = 3750;
 					break;
 				case 2:
+					octopus_planktonSpeed = 7;
+					octopus_planktonVal = 150;
+					octopus_maxHealth = 5;
+					octopus_regenVal = 4500;
 					break;
 				default:
+					octopus_planktonSpeed = 5;
+					octopus_planktonVal = 100;
+					octopus_maxHealth = 4;
+					octopus_regenVal = 4000;
 			}
 			
 			// Establish background, health, and score.
 			octopus_score = 0;
+			octopus_regen = 0;
 			octopus_health = octopus_maxHealth;
 			game.add.sprite(0, 0, 'menu_background');
+			
+			// This is a dummy score_pop hidden offscreen.
+			score_pop = makeText(-100, -100, 0, 2, 0, "");
 			
 			// Octopus configuration
 			octopus = game.add.sprite(0, 0, 'octopus');
@@ -364,6 +381,11 @@ function createGame(myGame, mode){
 			octopus.body.immovable = true;
 			octopus.inputEnabled = true;
 			// game.input.onDown.add(octopusMove, this);
+			
+			// Plankton
+			plankton = game.add.sprite(game.world.width + 200, octopus.y, 'plankton');
+			game.physics.arcade.enable(plankton);
+			
 			break;
 		default:
 			changeRoom(-1);
@@ -697,6 +719,11 @@ function octopusFriction(){
 		}
 	}
 }
+function octopusPlanktonCollect(){
+	// This happens when the octopus collects the plankton
+	octopus_score += octopus_planktonVal;
+	octopus_regen += octopus_planktonVal;
+}
  
 /*   General functions
  *   These functions are useful throughout the code.
@@ -863,6 +890,7 @@ function update() {
 		case 1201: // Octopus game
 			octopusMove(game.input.mousePointer.isDown);
 			octopusFriction();
+			popTimerCheck();
 			break;
 			
 		/*   ERROR   */
