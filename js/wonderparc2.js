@@ -59,6 +59,7 @@ function preload() {
 	// These assets are used in the octopus minigame.
 	game.load.image('octopus', wp2 + 'octopus/octopus.png');
 	game.load.image('plankton', wp2 + 'octopus/plankton.png');
+	game.load.image('garbage', wp2 + 'octopus/garbage.png');
 }
 
 /*   ROOMS - A GUIDE
@@ -101,7 +102,7 @@ var diffLang = ["EASY", "NORMAL", "HARD"];					// Used to display game difficult
 /* S */ var music_toggle = true, sound_toggle = true;		// Toggles to play music and sounds in the game
 
 // For the main menu...
-var menu_title, menu_subtitle;														// Title at the top of the menu
+var menu_title, menu_subtitle, menu_text;											// Text on the menu
 var menu_crab, menu_crab_hide = false, menu_crab_walk = 0, menu_crab_walk_point;	// Walking crab on the main menu
 var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clickable buttons: main menu
 var menu_button_music, menu_button_sound;
@@ -141,10 +142,11 @@ var seal_score;
 var seal;
 
 // For the octopus game...
-var octopus, octopus_score;
-var octopus_health, octopus_maxHealth, octopus_healthCt;
-var octopus_regen, octopus_regenVal, octopus_regenCt;
-var octopus_plankton, octopus_planktonSpeed, octopus_planktonVal;
+var octopus, octopus_score;													// Octopus, and the game score
+var octopus_health, octopus_maxHealth, octopus_healthCt;					// Health of the octopus
+var octopus_regen, octopus_regenVal, octopus_regenCt;						// Regen status of the octopus
+var plankton, planktonSpeed, planktonVal;									// Plankton to feed the octopus
+var garbage, garbageSpeed;													// Garbage that you must avoid
 
 /*   CREATE FUNCTIONS
  *   This is the function that initially draws everything on the screen for each room.
@@ -344,20 +346,20 @@ function createGame(myGame, mode){
 		case OCTOPUS:
 			switch(difficulty){
 				case 0:
-					octopus_planktonSpeed = 3;
-					octopus_planktonVal = 75;
+					planktonSpeed = 3;
+					planktonVal = 75;
 					octopus_maxHealth = 3;
 					octopus_regenVal = 3750;
 					break;
 				case 2:
-					octopus_planktonSpeed = 7;
-					octopus_planktonVal = 150;
+					planktonSpeed = 7;
+					planktonVal = 150;
 					octopus_maxHealth = 5;
 					octopus_regenVal = 4500;
 					break;
 				default:
-					octopus_planktonSpeed = 5;
-					octopus_planktonVal = 100;
+					planktonSpeed = 5;
+					planktonVal = 100;
 					octopus_maxHealth = 4;
 					octopus_regenVal = 4000;
 			}
@@ -385,6 +387,8 @@ function createGame(myGame, mode){
 			// Plankton
 			plankton = game.add.sprite(game.world.width + 200, octopus.y, 'plankton');
 			game.physics.arcade.enable(plankton);
+			garbage = game.add.sprite(game.world.width + 200, garbage.y, 'garbage');
+			game.physics.arcade.enable(garbage);
 			
 			break;
 		default:
@@ -533,16 +537,15 @@ function arcadePlayOctopus(){
  *   This is where the player can create a new save file or continue from their previous one.
  *   Refer to the top of the code under VARIABLES to see which variables are written to memory.
  */
- function newButton(){
+function newButton(){
 	 // Start a new game of Story Mode. Takes you to the confirmation menu.
 	 changeRoom(2);
  }
- function continueButton(){
+function continueButton(){
 	 // Pick up where you left off! (This is a placeholder for now.)
-	 dialogue(0, 1);
-	 dialogue(0, 0);
+	 
  }
- function confirmButton(){
+function confirmButton(){
 	 // Are you sure that you'd like to overwrite your save file?
 	 changeRoom(-1);
  }

@@ -1,5 +1,13 @@
+// This is sample text for testing purposes.
 MARTINEZ
 This is a test.
 Testing, testing.
 Please listen to me! I am talking to you!
-askdfkl;asdlfhasl;kfgkashfguhasudhfkashdfakjfakakjsdflassgizdsyfgiudfgsarfyu
+
+// The following would be possible introductions into the dolphin minigame.
+MARTINEZ
+asdf
+
+// The following would be possible introductions into the octopus minigame.
+MARTINEZ
+asdf
