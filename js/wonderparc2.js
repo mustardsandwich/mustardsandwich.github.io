@@ -285,7 +285,7 @@ function create() {
 			menu_crab.events.onInputDown.add(menuCrabHide, this);
 			game.input.onDown.add(menuCrabWalk, this);
 			
-			makeDialogue(1, 5);
+			makeDialogue(2, 5);
 	}
 }
 function createGame(myGame, mode){
@@ -382,12 +382,11 @@ function createGame(myGame, mode){
 			octopus.body.checkCollisions = true;
 			octopus.body.immovable = true;
 			octopus.inputEnabled = true;
-			// game.input.onDown.add(octopusMove, this);
 			
 			// Plankton
 			plankton = game.add.sprite(game.world.width + 200, octopus.y, 'plankton');
 			game.physics.arcade.enable(plankton);
-			garbage = game.add.sprite(game.world.width + 200, garbage.y, 'garbage');
+			garbage = game.add.sprite(game.world.width + 200, octopus.y, 'garbage');
 			game.physics.arcade.enable(garbage);
 			
 			break;
@@ -556,43 +555,15 @@ function confirmButton(){
  */
 function dolphinMove(){
 	// This function makes the dolphin move.
-	if(game.input.mousePointer.y < (dolphin.height / 2)){
+	if(game.input.y < (dolphin.height / 2)){
 		dolphin.y = 1;
 	}
-	else if(game.input.mousePointer.y > game.world.height - (dolphin.height / 2)){
+	else if(game.input.y > game.world.height - (dolphin.height / 2)){
 		dolphin.y = game.world.height - dolphin.height - 1;
 	}
 	else{
-		dolphin.y = game.input.mousePointer.y - (dolphin.height / 2);
+		dolphin.y = game.input.y - (dolphin.height / 2);
 	}
-	
-	/* OLD CODE WITH SPEED CAP
-	if(game.input.mousePointer.y < (dolphin.height / 2)){
-		dolphin_move_point = dolphin.height / 2;
-	}
-	else if(game.input.mousePointer.y > game.world.height - (dolphin.height / 2)){
-		dolphin_move_point = game.world.height - (dolphin.height / 2);
-	}
-	else{
-		dolphin_move_point = game.input.mousePointer.y;
-	}
-	
-	if(dolphin.y + (dolphin.height / 2) > dolphin_move_point){
-		dolphin_move = -1;
-		dolphin.y += dolphin_move - dolphin_acc;
-	}
-	else if(dolphin.y + (dolphin.height / 2) < dolphin_move_point){
-		dolphin_move = 1;
-		dolphin.y += dolphin_move + dolphin_acc;
-	}
-	else{
-		dolphinStop();
-	}
-	
-	// Speed cap on dolphin movement
-	if(dolphin_acc < 8){
-		dolphin_acc += 1;
-	} */
 }
 function dolphinStop(){
 	// Makes the dolphin stop.
@@ -685,12 +656,12 @@ function sealMove(){
  *   These functions are specific to the octopus game.
  */
 function octopusMove(mouseDown){
-	destX = game.input.mousePointer.x - (octopus.width / 2);
-	destY = game.input.mousePointer.y - (octopus.height / 2);
+	destX = game.input.x - (octopus.width / 2);
+	destY = game.input.y - (octopus.height / 2);
 	distX = Math.abs(destX - octopus.x);
 	distY = Math.abs(destY - octopus.y);
 	
-	if(mouseDown && (distX > 10 || distY > 10)){
+	if(mouseDown > 0 && (distX > 10 || distY > 10)){
 		game.physics.arcade.moveToXY(octopus, destX, destY, 400);
 	}
 	else{
@@ -891,7 +862,7 @@ function update() {
 		case 1101: // Seal game
 			break;
 		case 1201: // Octopus game
-			octopusMove(game.input.mousePointer.isDown);
+			octopusMove(game.input.activePointer.exists);
 			octopusFriction();
 			popTimerCheck();
 			break;
