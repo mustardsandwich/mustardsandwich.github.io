@@ -369,6 +369,12 @@ function createGame(myGame, mode){
 			octopus_regen = 0;
 			octopus_health = octopus_maxHealth;
 			game.add.sprite(0, 0, 'menu_background');
+			score_count = makeText(-1, 24, 0, 36, 0, "SCORE: " + octopus_score.toString());
+			score_count.anchor.set(0.5, 0.5);
+			octopus_healthCt = octopusHealthCounter();
+			octopus_healthCt.anchor.set(0.5, 0.5);
+			octopus_regenCt = octopusRegenCounter();
+			octopus_regenCt.anchor.set(0.5, 0.5);
 			
 			// This is a dummy score_pop hidden offscreen.
 			score_pop = makeText(-100, -100, 0, 2, 0, "");
@@ -697,6 +703,24 @@ function octopusPlanktonCollect(){
 	// This happens when the octopus collects the plankton
 	octopus_score += octopus_planktonVal;
 	octopus_regen += octopus_planktonVal;
+}
+function octopusHealthCounter(){
+	var myString = "";
+	
+	for(x = 0; x < octopus_health; x++){
+		myString = myString.concat("O");
+	}
+	
+	for(y = 0; y < octopus_maxHealth - octopus_health; y++){
+		myString = myString.concat("X");
+	}
+	
+	return makeText(game.world.width / 2, game.world.height - 15, 0, 40, 0, myString);
+}
+function octopusRegenCounter(){
+	var myInt = octopus_regenVal - octopus_regen;
+	var myString = "BONUS IN: " + myInt.toString();
+	return makeText(game.world.width / 2, game.world.height - 40, 0, 24, 0, myString);
 }
  
 /*   General functions
