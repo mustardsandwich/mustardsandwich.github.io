@@ -58,7 +58,7 @@ function preload() {
 	
 	// These assets are used in the octopus minigame.
 	game.load.image('octopus', wp2 + 'octopus/octopus.png');
-	game.load.image('plankton', wp2 + 'octopus/plankton.png');
+	game.load.image('octopus_head', wp2 + 'octopus/octopus_head.png');
 	game.load.image('garbage', wp2 + 'octopus/garbage.png');
 }
 
@@ -134,7 +134,7 @@ var score_count, score_pop, score_popTimer = -1;				// Showing score counter and
 var dolphin_score;															// Score for the dolphin game
 var dolphin;																// The dolphin that you control
 var dolphin_health, dolphin_maxHealth, dolphin_healthCt;					// Health of the dolphin
-var dolphin_regen, dolphin_regenVal, dolphin_regenCt;						// Regen status of the dolphin
+var dolphin_regen, dolphin_regenVal, dolphin_regenCt, dolphin_regenScore;	// Regen status of the dolphin
 var dolphin_ring, dolphin_ringSpeed, dolphin_ringVal;						// The ring that you must go through
 
 // For the seal game...
@@ -143,10 +143,10 @@ var seal;
 
 // For the octopus game...
 var octopus, octopus_score;													// Octopus, and the game score
+var octopus_tents;
 var octopus_health, octopus_maxHealth, octopus_healthCt;					// Health of the octopus
-var octopus_regen, octopus_regenVal, octopus_regenCt;						// Regen status of the octopus
-var plankton, planktonSpeed, planktonVal;									// Plankton to feed the octopus
-var garbage, garbageSpeed;													// Garbage that you must avoid
+var octopus_regen, octopus_regenVal, octopus_regenCt, octopus_regenScore;	// Regen status of the octopus
+var garbage, garbageSpeed, garbageVal;										// Garbage that you must avoid
 
 /*   CREATE FUNCTIONS
  *   This is the function that initially draws everything on the screen for each room.
@@ -315,6 +315,8 @@ function createGame(myGame, mode){
 			// Establish background, health, and score, as well as the regen counter.
 			dolphin_score = 0;
 			dolphin_regen = 0;
+			dolphin_regenScore = dolphin_ringVal * 20;
+			
 			dolphin_health = dolphin_maxHealth;
 			game.add.sprite(0, 0, 'menu_background');
 			score_count = makeText(-1, 24, 0, 36, 0, "SCORE: " + dolphin_score.toString());
@@ -346,19 +348,19 @@ function createGame(myGame, mode){
 		case OCTOPUS:
 			switch(difficulty){
 				case 0:
-					planktonSpeed = 3;
+					garbageSpeed = 3;
 					planktonVal = 75;
 					octopus_maxHealth = 3;
 					octopus_regenVal = 3750;
 					break;
 				case 2:
-					planktonSpeed = 7;
+					garbageSpeed = 7;
 					planktonVal = 150;
 					octopus_maxHealth = 5;
 					octopus_regenVal = 4500;
 					break;
 				default:
-					planktonSpeed = 5;
+					garbageSpeed = 5;
 					planktonVal = 100;
 					octopus_maxHealth = 4;
 					octopus_regenVal = 4000;
@@ -380,7 +382,7 @@ function createGame(myGame, mode){
 			score_pop = makeText(-100, -100, 0, 2, 0, "");
 			
 			// Octopus configuration
-			octopus = game.add.sprite(0, 0, 'octopus');
+			octopus = game.add.sprite(0, 0, 'octopus_head');
 			octopus.x = (game.world.width - octopus.width) / 2;
 			octopus.y = (game.world.height - octopus.height) / 2;
 			game.physics.arcade.enable(octopus);
@@ -390,8 +392,6 @@ function createGame(myGame, mode){
 			octopus.inputEnabled = true;
 			
 			// Plankton
-			plankton = game.add.sprite(game.world.width + 200, octopus.y, 'plankton');
-			game.physics.arcade.enable(plankton);
 			garbage = game.add.sprite(game.world.width + 200, octopus.y, 'garbage');
 			game.physics.arcade.enable(garbage);
 			
@@ -625,8 +625,13 @@ function dolphinRegenCheck(){
 		}
 		else{
 			dolphin_regen = 0;
-			dolphin_score += (dolphin_ringVal * 20);
-			makeScore(true, game.world.width / 2, game.world.height / 2, dolphin_ringVal * 20, dolphin_score);
+			dolphin_score += dolphin_regenScore;
+			
+			score_pop.destroy();
+			score_pop = makeText(game.world.width / 2, game.world.height / 2, 0, 36, 0, "+" + dolphin_regenScore.toString() + "! YOU ARE THE REAL DEAL");
+			score_pop.anchor.set(0.5, 0.5);
+			score_popTimer = 30;
+			score_count.setText("SCORE: " + dolphin_score.toString());
 		}
 	}
 }
