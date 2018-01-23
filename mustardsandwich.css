@@ -115,7 +115,8 @@ h3 {
 	text-align: center;
 }
 
-/* This code should make the navigation bar play nice on mobile devices. */
+/* This code should make the navigation bar play nice on mobile devices. 
+
 @media screen and (min-width: 600px) {
 	.logo{
 		display: block;
@@ -150,3 +151,4 @@ h3 {
 		width: 100%;
 	}
 }
+*/
