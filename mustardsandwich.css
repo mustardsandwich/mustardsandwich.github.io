@@ -20,6 +20,10 @@ body {
      margin-left: auto;
      margin-right: auto;
 }
+.container_unlocked{
+	margin-left: auto;
+	margin-right: auto;
+}
 .page_header{
 	width: 100%;
 	height: 100%;
