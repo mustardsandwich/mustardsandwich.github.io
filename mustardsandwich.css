@@ -115,8 +115,7 @@ h3 {
 	text-align: center;
 }
 
-/* This code should make the navigation bar play nice on mobile devices. 
-
+/* This code should make the navigation bar play nice on mobile devices. */
 @media screen and (min-width: 600px) {
 	.logo{
 		display: block;
@@ -133,16 +132,16 @@ h3 {
 		float: right;
 	}
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1024px) {
 	.navigation{
 		list-style-type: none;
 		margin: 0px;
 		padding: 0px;
 		overflow: auto;
-		width: 900px;
+		width: 1024px;
 	}
 }
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 1023px) {
 	.navigation{
 		list-style-type: none;
 		margin: 0px;
@@ -151,4 +150,3 @@ h3 {
 		width: 100%;
 	}
 }
-*/
