@@ -32,6 +32,7 @@ body {
 	align-items: center;
 }
 h1 a{
+	text-decoration: none;
 	float: left;
 	font-size: 48px;
 	font-weight: 400;
@@ -112,7 +113,7 @@ h3 {
 
 /* This code should make the navigation bar play nice. */
 @media screen and (min-width: 600px) {
-	.logo{
+	.logo a{
 		display: block;
 		width: 96px;
 		height: 96px;
@@ -120,7 +121,7 @@ h3 {
 	}
 }
 @media screen and (max-width: 599px) {
-	.logo{
+	.logo a{
 		display: none;
 		width: 96px;
 		height: 96px;
