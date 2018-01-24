@@ -113,7 +113,7 @@ h3 {
 
 /* This code should make the navigation bar play nice. */
 @media screen and (min-width: 600px) {
-	.logo a{
+	.logo{
 		display: block;
 		width: 96px;
 		height: 96px;
@@ -121,7 +121,7 @@ h3 {
 	}
 }
 @media screen and (max-width: 599px) {
-	.logo a{
+	.logo{
 		display: none;
 		width: 96px;
 		height: 96px;
