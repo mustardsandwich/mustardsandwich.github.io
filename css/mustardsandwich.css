@@ -64,9 +64,6 @@ p a{
 p a:hover {
 	color: red;
 }
-.gamesite{
-	margin: 1px;
-}
 
 /* These are the buttons in the header of the site. */
 li a {
@@ -109,6 +106,12 @@ h3 {
 	color: #FFFFFF;
 	margin: 0 auto;
 	text-align: center;
+}
+h3 a{
+	color: rgba(255, 239, 0, 1);
+}
+h3 a:hover {
+	color: red;
 }
 
 /* This code should make the navigation bar play nice. */
