@@ -30,7 +30,7 @@ WebFont.load(wfconfig);
  */
 function preload() {
 	// These are all of the assets used in the main menu.
-	var wp2 = 'assets/wonderparc2/';
+	var wp2 = 'img/';
 	game.load.image('menu_background', wp2 + 'menu/background.png');
 	game.load.spritesheet('menu_button_story', wp2 + 'menu/button_story.png', 256, 128);
 	game.load.spritesheet('menu_button_arcade', wp2 + 'menu/button_arcade.png', 256, 128);
@@ -44,7 +44,7 @@ function preload() {
 	game.load.spritesheet('menu_button_confirm', wp2 + 'menu/button_confirm.png', 512, 128);
 	game.load.spritesheet('menu_button_back', wp2 + 'menu/button_back.png', 128, 64);
 	game.load.spritesheet('menu_crab', wp2 + 'menu/crab.png', 64, 48);
-	// game.load.audio('theme', wp2 + 'audio/01_theme_song.m4a');
+	// game.load.audio('theme', 'audio/01_theme_song.m4a');
 	
 	// These assets are used throughout story mode.
 	game.load.image('dialogue_box', wp2 + 'gui/dialogue.png');
