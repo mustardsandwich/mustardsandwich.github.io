@@ -4,11 +4,11 @@
 /* Here I import custom fonts to be used in pages or games. */
 @font-face {
 	font-family: "Comic Neue Bold";
-	src: url('assets/comicneuebold.ttf');
+	src: url('../font/comicneuebold.ttf');
 }
 @font-face {
 	font-family: "Tippins";
-	src: url('assets/tippins.ttf');
+	src: url('../font/tippins.ttf');
 }
 
 /* The following styles are used on most pages and are VERY IMPORTANT. */
@@ -16,7 +16,7 @@ body {
     background-color: #000000;
 }
 .container{
-    max-width: 900px;
+    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
 }
