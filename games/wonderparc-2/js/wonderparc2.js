@@ -121,7 +121,7 @@ var WALRUS = 6, POLAR = 7, PENGUIN = 8;
 // Creating character dialogue...
 var dialogue_box, dialogue_head, dialogue_header, dialogue_text = ["", "", "", "", ""];		// Drawing character dialogue boxes
 var wp2_script;
-readTextFile("http://mustardgame.info/assets/wonderparc2/script.txt");
+readTextFile("http://mustardgame.info/games/wonderparc-2/script.txt");
 
 // For arcade mode...
 /* S */ var arcadeHasPlayed = [0, 0, 0, 0, 0, 0, 0, 0, 0];		// Shows a one-time tutorial for each game
