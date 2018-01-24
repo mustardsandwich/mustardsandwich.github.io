@@ -20,11 +20,6 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-.container_large{
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .page_header{
 	width: 100%;
 	height: 100%;
@@ -36,7 +31,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-.page_name{
+h1 a{
 	float: left;
 	font-size: 48px;
 	font-weight: 400;
@@ -115,7 +110,7 @@ h3 {
 	text-align: center;
 }
 
-/* This code should make the navigation bar play nice on mobile devices. */
+/* This code should make the navigation bar play nice. */
 @media screen and (min-width: 600px) {
 	.logo{
 		display: block;
