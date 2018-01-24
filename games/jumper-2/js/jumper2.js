@@ -26,9 +26,8 @@ WebFont.load(wfconfig);
  */
 function preload() {
 	// Here we preload all of the game's assets.
-	var j2 = 'assets/jumper2/';
-	game.load.image('background', j2 + 'background.png');
-	game.load.spritesheet('jumper', j2 + 'jumper.png', 78, 89);
+	game.load.image('background', 'img/background.png');
+	game.load.spritesheet('jumper', 'img/jumper.png', 78, 89);
 }
 
 var jumper;
