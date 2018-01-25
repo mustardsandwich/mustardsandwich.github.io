@@ -4,11 +4,11 @@
 /* Here I import custom fonts to be used in pages or games. */
 @font-face {
 	font-family: "Comic Neue Bold";
-	src: url('../font/comicneuebold.ttf');
+	src: url('/font/comicneuebold.ttf');
 }
 @font-face {
 	font-family: "Tippins";
-	src: url('../font/tippins.ttf');
+	src: url('/font/tippins.ttf');
 }
 
 /* The following styles are used on most pages and are VERY IMPORTANT. */
