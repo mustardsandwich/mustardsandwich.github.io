@@ -58,6 +58,12 @@ p{
 	font-family: "Comic Neue Bold";
 	font-size: 20px;
 }
+li{
+	margin: 1em;
+	color: white;
+	font-family: "Comic Neue Bold";
+	font-size: 20px;
+}
 p a{
 	color: rgba(255, 239, 0, 1);
 }
