@@ -11,7 +11,7 @@
 	src: url('/font/tippins.ttf');
 }
 
-/* The following styles are used on most pages and are VERY IMPORTANT. */
+/* The following styles are used to format most pages and are VERY IMPORTANT. */
 body {
     background-color: #000000;
 }
@@ -43,6 +43,13 @@ body {
 	clear: left;
 	bottom: 100%;
 }
+
+/* These styles are used to format most of the text on the website. */
+.ms {
+	color: rgba(255, 239, 0, 1);
+	font-family: "Tippins";
+	font-size: 20px;
+}
 h1{
 	text-decoration: none;
 	float: left;
@@ -70,9 +77,8 @@ li{
 	font-family: "Comic Neue Bold";
 	font-size: 20px;
 }
-
-/* These are the buttons in the header of the site. */
 li a {
+	/* These are the buttons in the header of the site. */
 	color: #FFFFFF;
 	background-color: rgba(159, 159, 159, 1);
 	font-family: "Comic Neue Bold";
@@ -86,13 +92,9 @@ li a {
 	text-align: center;
 }
 li a:hover {
+	/* They change color when you hover over them! */
 	color: rgba(255, 239, 0, 1);
 	background-color: rgba(127, 127, 127, 1);
-}
-strong {
-	color: rgba(255, 239, 0, 1);
-	font-family: "Tippins";
-	font-size: 20px;
 }
 
 /* These are for the tables on the game select page. */
