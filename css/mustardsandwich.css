@@ -93,18 +93,20 @@ li a:hover {
 /* These are for the tables on the game select page. */
 .gt {
 	/* Generic format for cells */
-	color: rgba(255, 239, 0, 1);
+	background-color: rgba(255, 239, 0, 1);
 	border-style: groove;
 	border-color: #FFFFFF;
 	border-width: 3px;
-	width: 80%;
 }
 .gt0 {
 	/* Table as a whole */
+	width: 80%;
+	margin: 0 auto;
 }
 .gt1 {
 	/* Title of game */
 	text-align: center;
+	width: 33%;
 }
 
 /* These are mostly used on the pages with games on them. */
