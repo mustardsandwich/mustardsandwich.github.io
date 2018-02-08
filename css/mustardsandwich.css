@@ -31,15 +31,6 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-h1{
-	text-decoration: none;
-	float: left;
-	font-size: 48px;
-	font-weight: 400;
-	font-family: "Tippins";
-	color: rgba(255, 239, 0, 1);
-	margin: 2px;
-}
 .page_footer{
 	margin: 0px;
 	padding: 0.25em;
@@ -51,6 +42,15 @@ h1{
 	background-color: rgba(159, 159, 159, 1);
 	clear: left;
 	bottom: 100%;
+}
+h1{
+	text-decoration: none;
+	float: left;
+	font-size: 48px;
+	font-weight: 400;
+	font-family: "Tippins";
+	color: rgba(255, 239, 0, 1);
+	margin: 2px;
 }
 p{
 	margin: 1em;
@@ -88,6 +88,11 @@ li a {
 li a:hover {
 	color: rgba(255, 239, 0, 1);
 	background-color: rgba(127, 127, 127, 1);
+}
+strong {
+	color: rgba(255, 239, 0, 1);
+	font-family: "Tippins";
+	font-size: 20px;
 }
 
 /* These are for the tables on the game select page. */
