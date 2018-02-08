@@ -90,6 +90,17 @@ li a:hover {
 	background-color: rgba(127, 127, 127, 1);
 }
 
+/* These are for the tables on the game select page. */
+.gt {
+	border-style: groove;
+	border-color: #FFFFFF;
+	border-width: 3px;
+}
+.gt1 {
+	/* Title of game */
+	text-align: left;
+}
+
 /* These are mostly used on the pages with games on them. */
 h2 {
 	font-family: "Comic Neue Bold";
