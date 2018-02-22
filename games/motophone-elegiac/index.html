@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "UTF-8" />
-        <title> Motophone Elegiac </title>
-		<script type="text/javascript" src="/js/webfont.js" />
-		<!-- Squiffy 5.1.2: https://github.com/textadventures/squiffy -->
-        <script type="text/javascript" src="story.js" charset="UTF-8" />
+<!--
+
+Created with Squiffy 5.1.2
+
+
+https://github.com/textadventures/squiffy
+
+-->
+	<head>
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<script src="jquery.min.js"></script>
+		<script src="story.js" charset="UTF-8"></script>
+		
 		<script>
 			jQuery(function($){
 				$('#squiffy').squiffy();
@@ -19,18 +27,15 @@
 				});
 			});
 		</script>
-        <link rel="stylesheet" type="text/css" href="/css/mustardsandwich.css" />
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="icon" type="image/png" href="/favicon.ico" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="William Tippins" />
-    </head>
-
+		<link rel="stylesheet" href="style.css"/>
+	</head>
 	<body>
 		<div id="squiffy-container">
-			<div id="squiffy-header"> <a class="squiffy-header-link" id="restart" tabindex="0"> Restart </a> </div>
-			<div id="squiffy" />
+			<div id="squiffy-header">
+				<a class="squiffy-header-link" id="restart" tabindex="0">Restart</a>
+			</div>
+			<div id="squiffy">
+			</div>
 		</div>
 	</body>
 </html>
