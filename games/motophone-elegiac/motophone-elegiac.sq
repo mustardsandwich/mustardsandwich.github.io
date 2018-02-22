@@ -1,0 +1,131 @@
+You are seated at a restaurant.
+
++++>> Take a look around the restaurant.
+
+It is a medium-sized, welcoming establishment: well-kept if a bit pretentious. The walls are made of exposed brick and decorated with [an assortment of ornaments and curiosities]. Overhead, a fleet of polished ceiling fans rotate lazily in between wooden rafters, their incandescent bulbs exuding a romantic golden glow onto [the floor below you]. Your cozy corner table certainly provides an excellent vantage point of the eatery.
+
+[an assortment of ornaments and curiosities]:
+
+Along the walls of the restaurant are a number of post-modernist paintings and art installments. The west wall assaults your eyeballs with a plethora of vintage clocks. Every persuasion of clockwork is present: analogue, digital, clockwork, cuckoo. Thankfully, their ticking seems to have been muted by some means, and each clock sits quietly at a different (incorrect) time. On the east wall, a watercolor painting by a famous artist - her name escapes you at the moment - is displayed prominently in a gilded frame. It depicts a large bear made out of several smaller bears.
+
+Above the table at which you are seated is a bronze plaque with the inscription "The Elephant's Loom, est. 2035."
+
+[the floor below you]:
+
+You study the pattern of the rug with great interest. It appears to have been imported from a foreign country - south Asian, perhaps - where its intricate patterns and luxurious detail might have held spiritual significance. It now served as a glorified platter for a child's serving of mashed potatoes that the wait staff shows little to no interest in retrieving. 
+
++++>> Examine the contents of your own table.
+
+You observe two splendid meals, still warm, sitting atop a pair of porcelain plates. You have ordered tilapia: seared and garnished with lemon and parsley. The parsley is locally sourced. 
+
+There is a curious parallelism to this particular table-for-two. The gentleman seated opposite you shares a tacit appreciation for perennial Alaskan seafood as he has ordered the exact same thing. Each of you holds a wine glass, though yours is filled with white wine and his with red. While your napkin is folded into an isosceles triangle, his is folded into an origami praying mantis. Next to each place setting is a blue ballpoint pen and a black portfolio; [yours] is closed while his is opened. 
+
+Your gaze meets his, and you realize that you haven't looked in his general direction in about ten minutes. 
+
+[[>> "Would you like a bite of my tilapia?"]](likeabite)
+
+[[>> "Can I have a bite of your tilapia?"]](haveabite)
+
+[yours]:
+
+You move to open your portfolio, but the man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."
+
+[[likeabite]]:
+
+"No, thank you," the man replies. "I'm allergic to tilapia."
+
+[[>> Take a bite of tilapia.]]
+
+[[>> Take a drink of wine.]]
+
+[[haveabite]]:
+
+The man raises an eyebrow at your curiously, then shrugs. "Sure, it's all yours. I ate before we got here anyway." He forks a generous helping of fish onto your already-full plate.
+
+[[>> Take a bite of tilapia.]]
+
+[[>> Take a drink of wine.]]
+
+[[>> Take a bite of tilapia.]]:
+
+It's a bit dry, but you are very hungry. 
+
+[[>> It is time for business.]]
+
+[[>> Take a drink of wine.]]:
+
+The wine, despite tasting like watered-down hand soap, is surprisingly potent, and you feel a pleasant warmth in your throat as the alabaster fluid passes your lips. 
+
+[[>> It is time for business.]]
+
+[[>> It is time for business.]]:
+
+"Alright," [the man] says, clearing his throat. He adjusts the collar of his suit and straightens his tie. "I have something important to show you."
+
+With careful deliberation, he leafs through the contents of his black portfolio. Occasionally, he pauses to tap his pen to his jaw as if deep in thought. After several minutes, he removes a slip of paper and places it on the white tablecloth. It appears to be some variety of rubric, with criteria such as "body," "flavor," and "aroma." With a few scratches of his pen, the man completes the score sheet. He tucks it back into the portfolio and closes it gently.
+
+"Now, it is time for business. Do you have any questions for me, before we begin? Otherwise, go ahead and make a mark."
+
+[[>> "What are we doing here again?"]](tilapia_1)
+
+[[>> "Why have you chosen me for this job?"]](tilapia_2)
+
+[[>> "Did you just grade your wine?"]](tilapia_3)
+
+[[>> Read the room.]](tilapia_4)
+
+[the man]:
+
+The gentleman sitting across from you has an unmistakably dignified, yet jovial air about him. You have reported to him as long as you can remember. He appears markedly fit for his age; he graduated about fifteen years prior to you. His trademark is an inconspicuous black suit (embroidered with a silver "A.H.") and a bright orange tie with chocolate stripes. On any other day, you might have shared lunch and a conversation with him in a restaurant such as this. Today, the atmosphere is somewhat professional.
+
+[[tilapia_1]]:
+
+"Nerves. I understand. You've only been with this firm a couple of months, right?" The man nods sagely. He takes a wistful sip of his wine and leans back in his mahogany chair. "I remember my first time at [the Loom]. Under hand, over hill, or so they say."
+
+[[>> "Why have you chosen me for this job?"]](tilapia_2)
+
+[[>> "Did you just grade your wine?"]](tilapia_3)
+
+[[>> Read the room.]](tilapia_4)
+
+[the Loom]:
+
+"What is the significance of this restaurant?" you ask hesitantly. Your acquaintance stares straight ahead as if looking through you in order to examine the wall. 
+
+"The Elephant's Loom has been a staple of this city for years now. They make a great sauce. It's a remarkable piece of real estate, too. City limits, right on the county line. A nice place, to be sure, but you won't find it in any CEO's address book. It's a hotspot for the upper crust, real businessmen, the occasional heir. The people that walk through that door have money they don't know what to do with, and that's what places it squarely in our jurisdiction."
+
+He strokes his face absent-mindedly and glances up at the ceiling, as if convening with a higher power. "Plus, their lips are a lot tighter than their purse-strings, if you catch my drift."
+
+[[tilapia_2]]:
+
+"Why you? They say you're the very best. Since being transferred to my division you have passed every test and trial with flying colors. The suits seem to think it's high time that you started working in the field, and I tend to agree. Any old schmuck can follow a script; you know how to improvise. That silver tongue of yours is our hot ticket. These men are going to buy [what we have to sell], they just don't know it yet."
+
+[[>> "What are we doing here again?"]](tilapia_1)
+
+[[>> "Did you just grade your wine?"]](tilapia_3)
+
+[[>> Read the room.]](tilapia_4)
+
+[what we have to sell]:
+
+"What is it that we're selling again, exactly?" you ask.
+
+"Wow, you really are nervous," the man chuckles. "We sell whatever sells. I'll sort out the minutae. Your job is to make the mark."
+
+[[tilapia_3]]:
+
+"Have you not graded yours yet? How else might one assess a beverage of this caliber qualitatively? By what measure do you drink, friend?"
+
+[[>> "What are we doing here again?"]](tilapia_1)
+
+[[>> "Why have you chosen me for this job?"]](tilapia_2)
+
+[[>> Read the room.]](tilapia_4)
+
+[[tilapia_4]]:
+
+You scan the room carefully. It is time to make your mark.
+
+Two tables down from your own, there is [[a black man wearing a plaid suit]] sitting next to a tall, technicolor urn. Resting on the end of his nose are a pair of circular spectacles rimmed with gold, through which he is examining what appears to be an enthralling piece of parchment. A glass of ale rests inches from his left hand; you observe that he has nearly finished it. An inspection of his lapel reveals that he has recently finished a rack of ribs.
+
+There is [[an old woman wearing a stunning pearl necklace]] eating minestrone by the entrance to the parlor. She wears her hair in a top-knot bun, making it abundantly obvious that she is missing an ear. Upon close inspection, you also observe that she is sitting in a wheelchair.
