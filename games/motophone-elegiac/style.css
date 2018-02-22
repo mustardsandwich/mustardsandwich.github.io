@@ -1,3 +1,21 @@
+a.squiffy-link
+{
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+}
+a.squiffy-link.disabled
+{
+    text-decoration: inherit;
+    color: white;
+    cursor: pointer;
+}
+a.squiffy-header-link
+{
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
 div#squiffy-container
 {
     max-width: 900px;
@@ -6,6 +24,7 @@ div#squiffy-container
 }
 div#squiffy-header
 {
+    font-size: 14px;
     text-align: right;
 }
 div#squiffy
