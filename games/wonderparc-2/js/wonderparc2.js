@@ -188,16 +188,16 @@ function create() {
 			menu_crab.events.onInputDown.add(menuCrabHide, this);
 			game.input.onDown.add(menuCrabWalk, this);
 			break;
-		case 1: // Story Mode menu
+		case 1: // Play menu
 			game.add.sprite(0, 0, 'menu_background');
-			menu_title = makeText(-1, 48, 0, 64, 0, 'STORY MODE');
+			menu_title = makeText(-1, 48, 0, 64, 0, 'ARCADE MODE');
 			menu_title.anchor.set(0.5, 0.5);
-			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'FILE SELECT');
+			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'GAME SELECT');
 			menu_subtitle.anchor.set(0.5, 0.5);
-			menu_button_new = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_new', newButton, this, 1, 0, 1);
-			menu_button_continue = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_continue', continueButton, this, 1, 0, 1);
+			arcade_dolphin = game.add.button(64, 128, 'dolphin', arcadePlayDolphin, this, 0, 0, 0);
+			arcade_octopus = game.add.button(450, 108, 'octopus', arcadePlayOctopus, this, 0, 0, 0);
+			setDifficultyButton(difficulty);
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
-			// setDifficultyButton(difficulty);
 			break;
 		case 2: // Story Mode file overwrite confirm
 			game.add.sprite(0, 0, 'menu_background');
@@ -209,60 +209,27 @@ function create() {
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
 			// setDifficultyButton(difficulty);
 			break;
-		case 3: // Arcade Mode menu
+		case 3: // Story Mode menu
 			game.add.sprite(0, 0, 'menu_background');
-			menu_title = makeText(-1, 48, 0, 64, 0, 'ARCADE MODE');
+			menu_title = makeText(-1, 48, 0, 64, 0, 'STORY MODE');
 			menu_title.anchor.set(0.5, 0.5);
-			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'GAME SELECT');
+			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'FILE SELECT');
 			menu_subtitle.anchor.set(0.5, 0.5);
-			arcade_dolphin = game.add.button(64, 128, 'dolphin', arcadePlayDolphin, this, 0, 0, 0);
-			arcade_octopus = game.add.button(450, 108, 'octopus', arcadePlayOctopus, this, 0, 0, 0);
-			setDifficultyButton(difficulty);
+			menu_button_new = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_new', newButton, this, 1, 0, 1);
+			menu_button_continue = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_continue', continueButton, this, 1, 0, 1);
 			menu_button_back = game.add.button(10, game.world.height - 74, 'menu_button_back', backButton, this, 1, 0, 1);
+			// setDifficultyButton(difficulty);
 			break;
 			
-		/*   STORY MODE SCREENS
-		 *   These screens are for the cutscenes, menus, and levels within Story Mode.
+		/*   MINIGAME SCREENS
+		 *   The following menus and levels are used for the different minigames.
 		 */
-		case 100: // (100-120) : CUTSCENE 1
-			break;
-		case 101:
-			break;
-		case 102:
-			break;
-		case 103:
-			break;
-		case 104:
-			break;
-		case 105:
-			break;
-		case 106:
-			break;
-		case 107:
-			break;
-		case 108:
-			break;
-		case 109:
-			break;
-		case 110:
-			break;
-			
-		/*   ARCADE MODE SCREENS
-		 *   The following menus and levels are used for Arcade Mode.
-		 */
-		case 1000: // Dolphin menu
-			break;
-		case 1001: // Dolphin game
+		case 1000: // Dolphin game
 			createGame(DOLPHIN, 1);
 			break;
-		case 1100: // Seal menu
+		case 1100: // Seal game
 			break;
-		case 1101: // Seal game
-			createGame(SEAL, 1);
-			break;
-		case 1200: // Octopus menu
-			break;
-		case 1201: // Octopus game
+		case 1200: // Octopus game
 			createGame(OCTOPUS, 1);
 			break;
 			
@@ -412,7 +379,7 @@ function storyButton(){
 }
 function playButton(){
 	// Open the arcade mode menu
-	changeRoom(3); 
+	changeRoom(1000); 
 }
 function backButton(){
 	// Go back a room or menu
