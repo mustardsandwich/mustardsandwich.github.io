@@ -25,10 +25,12 @@ a.squiffy-link.disabled
 }
 a.squiffy-header-link
 {
-    text-decoration: underline;
+	margin-top: 4px;
+    text-decoration: none;
 	color: rgba(255, 239, 0, 1);
 	font-family: "Tippins";
-	font-size: 24px;
+	font-size: 32px;
+	font-weight: 200;
     cursor: pointer;
 }
 a.squiffy-header-link:hover
