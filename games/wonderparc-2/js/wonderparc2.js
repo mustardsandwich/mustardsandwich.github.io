@@ -33,7 +33,7 @@ function preload() {
 	var wp2 = 'img/';
 	game.load.image('menu_background', wp2 + 'menu/background.png');
 	game.load.spritesheet('menu_button_story', wp2 + 'menu/button_story.png', 256, 128);
-	game.load.spritesheet('menu_button_arcade', wp2 + 'menu/button_arcade.png', 256, 128);
+	game.load.spritesheet('menu_button_play', wp2 + 'menu/button_play.png', 256, 128);
 	game.load.spritesheet('menu_button_music', wp2 + 'menu/button_music.png', 32, 32);
 	game.load.spritesheet('menu_button_sound', wp2 + 'menu/button_sound.png', 32, 32);
 	game.load.spritesheet('menu_button_easy', wp2 + 'menu/button_easy.png', 128, 64);
@@ -104,7 +104,7 @@ var diffLang = ["EASY", "NORMAL", "HARD"];					// Used to display game difficult
 // For the main menu...
 var menu_title, menu_subtitle, menu_text;											// Text on the menu
 var menu_crab, menu_crab_hide = false, menu_crab_walk = 0, menu_crab_walk_point;	// Walking crab on the main menu
-var menu_button_story, menu_button_arcade, menu_button_difficulty;					// Clickable buttons: main menu
+var menu_button_story, menu_button_play, menu_button_difficulty;					// Clickable buttons: main menu
 var menu_button_music, menu_button_sound;
 var menu_button_new, menu_button_continue, menu_button_back, menu_button_confirm;	// Clickable buttons: story menu
 
@@ -168,8 +168,9 @@ function create() {
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'THE REAL DEAL');
 			menu_subtitle.anchor.set(0.5, 0.5);
-			menu_button_story = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_story', storyButton, this, 1, 0, 1);
-			menu_button_arcade = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_arcade', arcadeButton, this, 1, 0, 1);
+			// menu_button_story = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_story', storyButton, this, 1, 0, 1);
+			// menu_button_arcade = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_arcade', arcadeButton, this, 1, 0, 1);
+			menu_button_play = game.add.button(game.world.width / 2 - 64, 128, 'menu_button_play', playButton, this, 1, 0, 1);
 			setDifficultyButton(difficulty);
 			setMusicButton(true);
 			setSoundButton(true);
@@ -409,7 +410,7 @@ function storyButton(){
 	// Open the story mode menu
 	changeRoom(1);
 }
-function arcadeButton(){
+function playButton(){
 	// Open the arcade mode menu
 	changeRoom(3); 
 }
