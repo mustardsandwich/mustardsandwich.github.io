@@ -71,10 +71,10 @@ p a{
 p a:hover {
 	color: red;
 }
-a .page-footer{
+a.page-footer{
     color: rgba(255, 239, 0, 1);
 }
-a .page-footer:hover{
+a.page-footer:hover{
 	color: red;
 }
 li{
