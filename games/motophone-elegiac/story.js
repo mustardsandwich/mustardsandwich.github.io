@@ -629,7 +629,7 @@ squiffy.story.start = '_default';
 squiffy.story.id = '7a4d823c0f';
 squiffy.story.sections = {
 	'_default': {
-		'text': "<p>You are seated at a restaurant.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"_continue1\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a look around the restaurant.</a></p>",
+		'text': "<h2> MOTOPHONE ELEGIAC </h2>\n\n<p>You are seated at a restaurant.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"_continue1\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a look around the restaurant.</a></p>",
 		'passages': {
 		},
 	},
