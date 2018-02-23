@@ -170,7 +170,7 @@ function create() {
 			menu_subtitle.anchor.set(0.5, 0.5);
 			// menu_button_story = game.add.button(game.world.width / 2 - 272, 128, 'menu_button_story', storyButton, this, 1, 0, 1);
 			// menu_button_arcade = game.add.button(game.world.width / 2 + 16, 128, 'menu_button_arcade', arcadeButton, this, 1, 0, 1);
-			menu_button_play = game.add.button(game.world.width / 2 - 64, 128, 'menu_button_play', playButton, this, 1, 0, 1);
+			menu_button_play = game.add.button(game.world.width / 2 - 128, 128, 'menu_button_play', playButton, this, 1, 0, 1);
 			setDifficultyButton(difficulty);
 			setMusicButton(true);
 			setSoundButton(true);
