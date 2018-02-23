@@ -400,9 +400,6 @@ function createGame(myGame, mode){
 			changeRoom(-1);
 	}
 }
-function createCutscene1(myScene){
-	// I might use this to create cutscene 1 specifically.
-}
 
 /*   Main menu functions
  *   These are the functions that are MAINly (haha) meant for the main menu.
