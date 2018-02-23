@@ -10,7 +10,7 @@
  *   Here we initialize the game with dimensions 640 x 480 pixels.
  *   We also initialize a "pointer" - Phaser uses this to let you play with mouse or touchscreen.
  */
-var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game_canvas', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1024, 768, Phaser.CANVAS, 'game_canvas', { preload: preload, create: create, update: update });
 var pointer = new Phaser.Pointer(game, 0);
 
 /*   LOADING A CUSTOM FONT
