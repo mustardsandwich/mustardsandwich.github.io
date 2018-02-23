@@ -104,6 +104,7 @@ li a:hover {
 	border-style: groove;
 	border-color: #FFFFFF;
 	border-width: 3px;
+	padding: 0px;
 }
 .gt0 {
 	/* Table as a whole */
