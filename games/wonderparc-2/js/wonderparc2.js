@@ -837,12 +837,8 @@ function update() {
 			menuCrabCheck();
 			break;
 			
-		/*   STORY MODE SCREENS   */
-		case 10: // CUTSCENE 1 scene 1
-			break;
-			
 		/*   ARCADE MODE SCREENS   */
-		case 1001: // Dolphin game
+		case 1000: // Dolphin game
 			dolphinMove();																// Dolphin movement
 			game.physics.arcade.collide(dolphin, dolphin_ring, dolphinRingCollect);		// Dolphin ring collision
 			dolphinRegenCheck();														// Check for bonus
@@ -853,9 +849,9 @@ function update() {
 				dolphinLoseRing();
 			}
 			break;
-		case 1101: // Seal game
+		case 1100: // Seal game
 			break;
-		case 1201: // Octopus game
+		case 1200: // Octopus game
 			octopusMove(game.input.activePointer.exists);
 			octopusFriction();
 			popTimerCheck();
