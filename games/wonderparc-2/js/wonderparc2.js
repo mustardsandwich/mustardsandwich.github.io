@@ -415,10 +415,10 @@ function setMusicButton(onStart){
 	if(!onStart){ menu_button_music.destroy(); }
 	
 	if(music_toggle){
-		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 2, 0, 2);
+		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 1, 0, 1);
 	}
 	else{
-		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 3, 1, 3);
+		menu_button_music = game.add.button(game.world.width - 68, 2, 'menu_button_music', toggleMusic, this, 0, 1, 0);
 	}
 }
 function toggleSound(){
@@ -430,10 +430,10 @@ function setSoundButton(onStart){
 	if(!onStart){ menu_button_sound.destroy(); }
 	
 	if(sound_toggle){
-		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 2, 0, 2);
+		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 1, 0, 1);
 	}
 	else{
-		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 3, 1, 3);
+		menu_button_sound = game.add.button(game.world.width - 34, 2, 'menu_button_sound', toggleSound, this, 0, 1, 0);
 	}
 }
 function menuCrabHide(){
