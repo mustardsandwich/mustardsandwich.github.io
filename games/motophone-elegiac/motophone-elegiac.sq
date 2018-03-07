@@ -1,10 +1,14 @@
 You are seated at a restaurant.
 
+[[>> Debug.]](mark_01a)
+
 +++>> Take a look around the restaurant.
 
 It is a medium-sized, welcoming establishment: well-kept if a bit pretentious. The walls are made of exposed brick and decorated with [an assortment of ornaments and curiosities]. Overhead, a fleet of polished ceiling fans rotate lazily in between wooden rafters, their incandescent bulbs exuding a romantic golden glow onto [the floor below you]. Your cozy corner table certainly provides an excellent vantage point of the eatery.
 
 [an assortment of ornaments and curiosities]:
+
+    @set loom_ornaments
 
 Along the walls of the restaurant are a number of post-modernist paintings and art installments. The west wall assaults your eyeballs with a plethora of vintage clocks. Every persuasion of clockwork is present: analogue, digital, clockwork, cuckoo. Thankfully, their ticking seems to have been muted by some means, and each clock sits quietly at a different (incorrect) time. On the east wall, a watercolor painting by a famous artist - her name escapes you at the moment - is displayed prominently in a gilded frame. It depicts a large bear made out of several smaller bears.
 
@@ -28,11 +32,11 @@ Your gaze meets his, and you realize that you haven't looked in his general dire
 
 [yours]:
 
-You move to open your portfolio, but the man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."
+You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."
 
 [[likeabite]]:
 
-"No, thank you," the man replies. "I'm allergic to tilapia."
+"No, thank you," The Man replies. "I'm allergic to tilapia."
 
 [[>> Take a bite of tilapia.]]
 
@@ -40,7 +44,7 @@ You move to open your portfolio, but the man eyes you suspiciously. He then laug
 
 [[haveabite]]:
 
-The man raises an eyebrow at your curiously, then shrugs. "Sure, it's all yours. I ate before we got here anyway." He forks a generous helping of fish onto your already-full plate.
+The Man raises an eyebrow at your curiously, then shrugs. "Sure, it's all yours. I ate before we got here anyway." He forks a generous helping of fish onto your already-full plate.
 
 [[>> Take a bite of tilapia.]]
 
@@ -60,9 +64,9 @@ The wine, despite tasting like watered-down hand soap, is surprisingly potent, a
 
 [[>> It is time for business.]]:
 
-"Alright," [the man] says, clearing his throat. He adjusts the collar of his suit and straightens his tie. "I have something important to show you."
+"Alright," [The Man] says, clearing his throat. He adjusts the collar of his suit and straightens his tie. "I have something important to show you."
 
-With careful deliberation, he leafs through the contents of his black portfolio. Occasionally, he pauses to tap his pen to his jaw as if deep in thought. After several minutes, he removes a slip of paper and places it on the white tablecloth. It appears to be some variety of rubric, with criteria such as "body," "flavor," and "aroma." With a few scratches of his pen, the man completes the score sheet. He tucks it back into the portfolio and closes it gently.
+With careful deliberation, he leafs through the contents of [his black portfolio]. Occasionally, he pauses to tap his pen to his jaw as if deep in thought. After several minutes, he removes a slip of paper and places it on the white tablecloth. It appears to be some variety of rubric, with criteria such as "body," "flavor," and "aroma." With a few scratches of his pen, the man completes the score sheet. He tucks it back into the portfolio and closes it gently.
 
 "Now, it is time for business. Do you have any questions for me, before we begin? Otherwise, go ahead and make a mark."
 
@@ -72,21 +76,27 @@ With careful deliberation, he leafs through the contents of his black portfolio.
 
 [[>> "Did you just grade your wine?"]](tilapia_3)
 
-[[>> Read the room.]](tilapia_4)
+[[>> Read the room.]](mark_01a)
 
-[the man]:
+[The Man]:
 
 The gentleman sitting across from you has an unmistakably dignified, yet jovial air about him. You have reported to him as long as you can remember. He appears markedly fit for his age; he graduated about fifteen years prior to you. His trademark is an inconspicuous black suit (embroidered with a silver "A.H.") and a bright orange tie with chocolate stripes. On any other day, you might have shared lunch and a conversation with him in a restaurant such as this. Today, the atmosphere is somewhat professional.
 
+[his black portfolio]:
+
+The portfolio is sizable, to say the least. Dozens of pink and yellow and blue slips of paper peek out from between the pages, marking different places in the text. You estimate that there are hundreds of dossiers within its folds, each detailing the financial tendencies of one of the Loom's regular patrons.
+
 [[tilapia_1]]:
 
-"Nerves. I understand. You've only been with this firm a couple of months, right?" The man nods sagely. He takes a wistful sip of his wine and leans back in his mahogany chair. "I remember my first time at [the Loom]. Under hand, over hill, or so they say."
+"Nerves. I understand. You've only been with this firm a couple of months, right?" The Man nods sagely. He takes a wistful sip of his wine and leans back in his mahogany chair. "I remember my first time at [the Loom]. Under hand, over hill, or so they say."
+
+[[>> "What are we doing here again?"]](tilapia_1)
 
 [[>> "Why have you chosen me for this job?"]](tilapia_2)
 
 [[>> "Did you just grade your wine?"]](tilapia_3)
 
-[[>> Read the room.]](tilapia_4)
+[[>> Read the room.]](mark_01a)
 
 [the Loom]:
 
@@ -102,15 +112,17 @@ He strokes his face absent-mindedly and glances up at the ceiling, as if conveni
 
 [[>> "What are we doing here again?"]](tilapia_1)
 
+[[>> "Why have you chosen me for this job?"]](tilapia_2)
+
 [[>> "Did you just grade your wine?"]](tilapia_3)
 
-[[>> Read the room.]](tilapia_4)
+[[>> Read the room.]](mark_01a)
 
 [what we have to sell]:
 
 "What is it that we're selling again, exactly?" you ask.
 
-"Wow, you really are nervous," the man chuckles. "We sell whatever sells. I'll sort out the minutae. Your job is to make the mark."
+"Wow, you really are nervous," The Man chuckles. "We sell whatever sells. I'll sort out the minutae. Your job is to make the mark."
 
 [[tilapia_3]]:
 
@@ -120,12 +132,118 @@ He strokes his face absent-mindedly and glances up at the ceiling, as if conveni
 
 [[>> "Why have you chosen me for this job?"]](tilapia_2)
 
-[[>> Read the room.]](tilapia_4)
+[[>> "Did you just grade your wine?"]](tilapia_3)
 
-[[tilapia_4]]:
+[[>> Read the room.]](mark_01a)
+
+[[mark_01a]]:
 
 You scan the room carefully. It is time to make your mark.
 
 Two tables down from your own, there is a black man wearing a plaid suit sitting next to a tall, technicolor urn. Resting on the end of his nose are a pair of circular spectacles rimmed with gold, through which he is examining what appears to be an enthralling piece of parchment. A glass of ale rests inches from his left hand; you observe that he has nearly finished it. An inspection of his lapel reveals that he has recently finished a rack of ribs.
 
+[[>> Make your mark.]](plaid_01)
+
+[[>> Continue to scan the room.]](mark_01b)
+
+[[plaid_01]]:
+
+"What about the gentleman in the plaid suit?" you ask, nodding in the direction of the table with the urn. "He seems well-off. Do you have him on file?"
+
+The Man furrows his brow and glances at his documents. He licks his finger and runs it carefully along the edge of the formidable portfolio. He then spreads it open on the table before him. "Of course, he's a regular here. His name is Guandinere Johnson. Everything you need to know is right here in his dossier. It looks as if he's just finished his meal, though; don't wait too long."
+
+[> "Give me some background information."](plaid_01_1)
+
+[> "Tell me his darkest secrets."](plaid_01_2)
+
+[> "Tell me *your* darkest secrets."](plaid_01_3)
+
+[> "What does he usually eat here?"](plaid_01_4)
+
+[> "What can I sell him?"](plaid_01_5)
+
+[> "Do you have anything about me in there?"](plaid_01_6)
+
+[> Look at your own portfolio.](plaid_01_7)
+
+[plaid_01_1]:
+
+"Give me some background information," you say in earnest. "I like to know my customers inside and out."
+
+[plaid_01_2]:
+
+"What are his darkest secrets?" you ask in earnest. "Give me something salacious. Sometimes what a man doesn't tell you is the greatest window to his psyche."
+
+[plaid_01_3]:
+
+"What are *your* darkest secrets?" you ask in earnest. ""
+
+[plaid_01_4]:
+
+"What does he usually eat here?" you ask in earnest. "The fastest way to a man's heart is through his stomach."
+
+[plaid_01_5]:
+
+"What can I sell him?" you ask in earnest. ""
+
+[plaid_01_6]:
+
+"Do you have anything about me in that portfolio?" you ask in earnest. ""
+
+[plaid_01_7]:
+
+
+
+[@1]:
+
+asdf
+
+[@2]:
+
+You become aware of an incessant ticking sound. {if loom_ornaments: You glance at the art installment to see if the clocks have begun to turn, but they remain dormant.} The Man flashes a gold watch on his left wrist, reminding you of your pressing time constraint. Time remains for a single question.
+
+[@3]:
+
+    squiffy.story.go("plaid_02");
+
+[[plaid_02]]:
+
+"Alright, it's time to make your move," The Man advises.
+
+[[mark_01b]]:
+
+You scan the room carefully. It is time to make your mark.
+
 There is an old woman wearing a stunning pearl necklace eating minestrone by the entrance to the parlor. She wears her hair in a top-knot bun, making it abundantly obvious that she is missing an ear. Upon close inspection, you also observe that she is sitting in a wheelchair.
+
+[[>> Make your mark.]](pearl_01)
+
+[[>> Continue to scan the room.]](mark_01f)
+
+[[pearl_01]]:
+
+
+
+[[mark_01f]]:
+
+You scan the room carefully. It is time to make your mark.
+
+In the corner opposite you, there is a well-endowed gentleman with a briefcase overflowing with money. He dons an ostentatious golden top hat stuffed with money, and several bundles of cash can be seen haphazardly stashed beneath his [diamond-encrusted ascot]. A gilded cane rests elegantly against his chair, which is itself padded with dollar bills. Next to him is a laminated sign that reads "LOOKING TO BUY ANY AND ALL PRODUCTS."
+
+[[>> Make your mark.]](briefcase)
+
+[[>> Continue to scan the room.]](mark_01a)
+
+[diamond-encrusted ascot]:
+
+They are blood diamonds from Sudan.
+
+[[briefcase]]:
+
+"What about that guy?" you ask, gesturing vaguely toward the well-endowed gentleman with the briefcase.
+
+"Ah, a splendid choice," The Man says warmly. He then leans in loudly and conspicuously, splashing his suit jacket and most of the tablecloth with tilapia fluids. "I know it's your first time, rookie, but please exercise some degree of caution. The well-endowed gentleman you almost marked is in fact an undercover FBI agent."
+
+After detailed examination, you discover that the well-endowed gentleman is wearing a wire. There is also a visible camera in his top hat, and his shirt says "FBI" in huge letters.
+
+[[>> Continue to scan the room.]](mark_01a)
