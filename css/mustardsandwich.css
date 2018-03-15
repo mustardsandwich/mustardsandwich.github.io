@@ -159,6 +159,7 @@ h3 a:hover {
 	color: red;
 }
 .thmbn {
+	display: block;
 	width: 128px;
 	height: 128px;
 }
