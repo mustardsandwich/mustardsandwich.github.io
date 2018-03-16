@@ -162,6 +162,7 @@ h3 a:hover {
 	display: block;
 	width: 128px;
 	height: 128px;
+	margin: 0 auto;
 }
 
 /* This code should make the navigation bar play nice. */
