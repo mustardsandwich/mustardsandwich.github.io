@@ -158,12 +158,6 @@ h3 a{
 h3 a:hover {
 	color: red;
 }
-.thmbn {
-	display: block;
-	width: 128px;
-	height: 128px;
-	margin: 0 auto;
-}
 
 /* This code should make the navigation bar play nice. */
 @media screen and (min-width: 600px) {
