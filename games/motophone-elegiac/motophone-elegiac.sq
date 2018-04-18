@@ -14,6 +14,8 @@ Above the table at which you are seated is a bronze plaque with the inscription 
 
 [the floor below you]:
 
+    @set loom_floor
+
 You study the pattern of the rug with great interest. It appears to have been imported from a foreign country - south Asian, perhaps - where its intricate patterns and luxurious detail might have held spiritual significance. It now served as a glorified platter for a child's serving of mashed potatoes that the wait staff shows little to no interest in retrieving. 
 
 +++>> Examine the contents of your own table.
@@ -126,7 +128,7 @@ He strokes his face absent-mindedly and glances up at the ceiling, as if conveni
 
 [what we have to sell]:
 
-"What is it that we're selling again, exactly?" you ask.
+"What is it that we're selling again, exactly?" you ask in earnest.
 
 "Wow, you really are nervous," The Man chuckles. "We sell whatever sells. I'll sort you out with the minutae. Your job is to make the mark."
 
@@ -141,6 +143,10 @@ He strokes his face absent-mindedly and glances up at the ceiling, as if conveni
 [[>> "Did you just grade your wine?"]](tilapia_3)
 
 [[>> Read the room.]](mark_01a)
+
+
+
+
 
 [[mark_01a]]:
 
@@ -164,7 +170,7 @@ The Man furrows his brow and glances at his documents. He licks his finger and r
 
 [> "Tell me *your* darkest secrets."](plaid_01_3)
 
-[> "What does he usually eat here?"](plaid_01_4)
+[> "What does he like to eat here?"](plaid_01_4)
 
 [> "What can I sell him?"](plaid_01_5)
 
@@ -175,18 +181,19 @@ The Man furrows his brow and glances at his documents. He licks his finger and r
 [plaid_01_1]:
 
     @set plaid_background
+    @set plaid_name
 
-"Give me some background information," you say in earnest. "I like to know my customers inside and out."
+"Give me some background information."
 
-"Alright, let me see here..." The Man procures a lengthy dossier from the depths of his portfolio. "Guandinere Johnson. His thirty-sixth birthday is next week. Wealthy family. His father was a banker and his mother used the bank a lot. At twenty-seven he married some princess in Siam, fourth in line for the throne. He's got a gentleman's taste, to be sure. Suits, watches, escorts, that sort of thing. Also a bit of a connoisseur when it comes to fine wines.{if drank_wine:  Judging from the look on your face, I'd order him something red.}"
+"Alright, let me see here..." The Man procures a lengthy dossier from the depths of his portfolio. "Guandinere Johnson. His thirty-sixth birthday is next week. Family scores about 8 out of 10 on the wealth scale. His father was a banker and his mother used the bank a lot. At twenty-seven he married some princess in Siam, fourth in line for the throne, 10 out of 10 hot. He's got a gentleman's taste, to be sure. Suits, watches, escorts, that sort of thing. Also a bit of a connoisseur when it comes to fine wines.{if drank_wine:  Judging from the look on your face, I'd order him something red.}"
 
 [plaid_01_2]:
 
     @set plaid_darkest
 
-"What are his darkest secrets?" you ask in earnest. "Give me something salacious. Sometimes what a man doesn't tell you is the greatest window to his psyche."
+"What are his darkest secrets?" you ask in earnest.
 
-"." The Man slides a rubric from the fold of his portfolio. "
+"In terms of sketchiness? I'd give him a 5 out of 10." The Man slides a rubric from the fold of his portfolio. "Mostly typical businessman stuff, unfortunately. Offshore accounts, money mysteriously appearing and disappearing, that sort of thing. Had a close call with amphetamines a couple of years ago, but I'd hardly fault him for that. Being that rich can't be easy."
 
 [plaid_01_3]:
 
@@ -200,7 +207,7 @@ The Man frowns for a moment, then shrugs. "In 2035, I hit a man with my car at a
 
     @set plaid_eat
 
-"What does he usually eat here?" you ask in earnest. "The fastest way to a man's heart is through his stomach."
+You can already see the vestiges of prime rib on {if plaid_name: Guandinere Johnson's}{else: the man's} lapel. It would be silly to ask what he enjoys eating. He has clearly already eaten, so any relevance of the question to your operations has passed. Additionally, why would he order something from the restaurant that he did not enjoy? You quietly berate yourself for having the audacity to entertain such a frivolous question.
 
 [plaid_01_5]:
 
@@ -208,19 +215,23 @@ The Man frowns for a moment, then shrugs. "In 2035, I hit a man with my car at a
 
 "What can I sell him?" you ask in earnest.
 
-The Man procures a rubric from 
+The Man procures another rubric from his portfolio. This one is painstakingly marked up with a red pen.
+
+"I need you to sell him fourteen ball-bearings."
 
 [plaid_01_6]:
 
-    @set me_portfolio
+    @set me
 
-"Do you have anything about me in that portfolio?" you ask in earnest.
+"Do you have anything about me in that portfolio of yours?" you ask in earnest.
 
-"Why, of course I do," reveals The Man without hesitation. "
+"Why, of course I do," reveals The Man without hesitation. "Your name is Aria Wilco. You're twenty-five, so I suppose you've been working at this company your entire adult life. Your skills are all right here in this file: persuasion, improvisation, tact, all 9s and 10s. A perfect 26 on the Aptitude Test. And today, 18th of April, 2113, marks the date of your first real challenge."
 
 [plaid_01_7]:
 
-{if denied_portfolio: Wordlessly, you eye the portfolio sitting next to your plate. The Man's countenance becomes incrementally intense as he realizes your intentions, but he is far too late. The smooth leather finish wafts euphorically into your nasal cavity, it's sweet contents inches from your prying eyeballs. }{else: }
+{if denied_portfolio:{@my_portfolio}}{else:{@denied_portfolio}}
+
+{if denied_portfolio: Wordlessly, you eye the portfolio sitting next to your plate. The Man's countenance becomes incrementally intense as he realizes your intentions, but he is far too late. The smooth leather finish wafts euphorically into your nasal cavity, it's sweet contents inches from your prying eyeballs. }{else: You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."}
 
 [@1]:
 
@@ -236,11 +247,15 @@ You become aware of an incessant ticking sound. {if loom_ornaments: You glance a
 
 [[plaid_02]]:
 
-"Alright, it's time to make your move," The Man advises.
+"Alright, it's time to make your move," The Man advises. He passes a catalogue across the table to you and winks.
 
 +++>> Proceed to the route.
 
-Deftly, you rise from your 
+Deftly, you rise from your seat and begin to walk towards 
+
+
+
+
 
 [[mark_01b]]:
 
