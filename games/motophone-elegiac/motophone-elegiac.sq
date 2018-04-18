@@ -1,7 +1,5 @@
 You are seated at a restaurant.
 
-[[>> Debug.]](mark_01a)
-
 +++>> Take a look around the restaurant.
 
 It is a medium-sized, welcoming establishment: well-kept if a bit pretentious. The walls are made of exposed brick and decorated with [an assortment of ornaments and curiosities]. Overhead, a fleet of polished ceiling fans rotate lazily in between wooden rafters, their incandescent bulbs exuding a romantic golden glow onto [the floor below you]. Your cozy corner table certainly provides an excellent vantage point of the eatery.
@@ -32,6 +30,8 @@ Your gaze meets his, and you realize that you haven't looked in his general dire
 
 [yours]:
 
+    @set denied_portfolio
+
 You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."
 
 [[likeabite]]:
@@ -46,17 +46,23 @@ You move to open your portfolio, but The Man eyes you suspiciously. He then laug
 
 The Man raises an eyebrow at your curiously, then shrugs. "Sure, it's all yours. I ate before we got here anyway." He forks a generous helping of fish onto your already-full plate.
 
+Your intuition kicks in. It is almost time for business. You glance down at the table in front of you. A crucial decision awaits.
+
 [[>> Take a bite of tilapia.]]
 
 [[>> Take a drink of wine.]]
 
 [[>> Take a bite of tilapia.]]:
 
+    @set ate_tilapia
+
 It's a bit dry, but you are very hungry. 
 
 [[>> It is time for business.]]
 
 [[>> Take a drink of wine.]]:
+
+    @set drank_wine
 
 The wine, despite tasting like watered-down hand soap, is surprisingly potent, and you feel a pleasant warmth in your throat as the alabaster fluid passes your lips. 
 
@@ -122,11 +128,11 @@ He strokes his face absent-mindedly and glances up at the ceiling, as if conveni
 
 "What is it that we're selling again, exactly?" you ask.
 
-"Wow, you really are nervous," The Man chuckles. "We sell whatever sells. I'll sort out the minutae. Your job is to make the mark."
+"Wow, you really are nervous," The Man chuckles. "We sell whatever sells. I'll sort you out with the minutae. Your job is to make the mark."
 
 [[tilapia_3]]:
 
-"Have you not graded yours yet? How else might one assess a beverage of this caliber qualitatively? By what measure do you drink, friend?"
+"Have you not graded yours yet? How else might one assess a beverage of this caliber quantitatively? By what measure do you drink, friend?"
 
 [[>> "What are we doing here again?"]](tilapia_1)
 
@@ -168,35 +174,57 @@ The Man furrows his brow and glances at his documents. He licks his finger and r
 
 [plaid_01_1]:
 
+    @set plaid_background
+
 "Give me some background information," you say in earnest. "I like to know my customers inside and out."
+
+"Alright, let me see here..." The Man procures a lengthy dossier from the depths of his portfolio. "Guandinere Johnson. His thirty-sixth birthday is next week. Wealthy family. His father was a banker and his mother used the bank a lot. At twenty-seven he married some princess in Siam, fourth in line for the throne. He's got a gentleman's taste, to be sure. Suits, watches, escorts, that sort of thing. Also a bit of a connoisseur when it comes to fine wines.{if drank_wine:  Judging from the look on your face, I'd order him something red.}"
 
 [plaid_01_2]:
 
+    @set plaid_darkest
+
 "What are his darkest secrets?" you ask in earnest. "Give me something salacious. Sometimes what a man doesn't tell you is the greatest window to his psyche."
+
+"." The Man slides a rubric from the fold of his portfolio. "
 
 [plaid_01_3]:
 
-"What are *your* darkest secrets?" you ask in earnest. ""
+    @set arthur_darkest
+
+"What are *your* darkest secrets?" you ask in earnest.
+
+The Man frowns for a moment, then shrugs. "In 2035, I hit a man with my car at a Mardi Gras parade. Well, actually, it was a kid, actually four kids, and I was driving a float. That isn't really important to the task at hand, however."
 
 [plaid_01_4]:
+
+    @set plaid_eat
 
 "What does he usually eat here?" you ask in earnest. "The fastest way to a man's heart is through his stomach."
 
 [plaid_01_5]:
 
-"What can I sell him?" you ask in earnest. ""
+    @set plaid_sell
+
+"What can I sell him?" you ask in earnest.
+
+The Man procures a rubric from 
 
 [plaid_01_6]:
 
-"Do you have anything about me in that portfolio?" you ask in earnest. ""
+    @set me_portfolio
+
+"Do you have anything about me in that portfolio?" you ask in earnest.
+
+"Why, of course I do," reveals The Man without hesitation. "
 
 [plaid_01_7]:
 
-
+{if denied_portfolio: Wordlessly, you eye the portfolio sitting next to your plate. The Man's countenance becomes incrementally intense as he realizes your intentions, but he is far too late. The smooth leather finish wafts euphorically into your nasal cavity, it's sweet contents inches from your prying eyeballs. }{else: }
 
 [@1]:
 
-asdf
+{if ate_tilapia: You can feel the tilapia churning unceremoniously in your abdomen.}{if drank_wine: The wine's intoxicating effects begin to take hold of your consciousness as the foul liquid stagnates in your abdomen.} You surmise that time remains for two further inquiries.
 
 [@2]:
 
@@ -210,6 +238,10 @@ You become aware of an incessant ticking sound. {if loom_ornaments: You glance a
 
 "Alright, it's time to make your move," The Man advises.
 
++++>> Proceed to the route.
+
+Deftly, you rise from your 
+
 [[mark_01b]]:
 
 You scan the room carefully. It is time to make your mark.
@@ -222,7 +254,9 @@ There is an old woman wearing a stunning pearl necklace eating minestrone by the
 
 [[pearl_01]]:
 
+"Eh, not her," The Man advises.
 
+[[>> Continue to scan the room.]](mark_01f)
 
 [[mark_01f]]:
 

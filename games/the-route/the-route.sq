@@ -1,0 +1,216 @@
+You are in a forest.
+
++++>> Proceed to the route.
+
+You follow a small dirt path that leads deeper into the forest. There are more trees all around you. Here and there, you see a fern.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Stop and admire the trees.]](trees)
+
+[[trees]]:
+
+Wow, would you look at all of those trees! Some are short, some are tall. Some are big, and some are small! You hear a bird chirp as it glides gracefully through the air overhead. A [bunny rabbit] hops happily along through the grass. Nearby, you hear the babble of a brook. You find that if you climb through some brambles, there is a clearing up ahead.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Investigate the clearing.]](clearing)
+
+[[>> Burn down the entire forest.]](burndown_01)
+
+[bunny rabbit]:
+
+    @set bunnyrabbit
+    
+You pick up the bunny rabbit and place it in your inventory.
+
+[[clearing]]:
+
+You emerge from the brambles into a wide open field! There's so many things to see here. You see a [little pile of rocks] next to a [big pile of rocks]. There are some [dandelions] in the grass, bouncing back and forth happily in the breeze. At the edge of the clearing are some [blueberry bushes] growing next to the brook. The sun shines gently on you; you feel as if you could lie down here forever.
+
+[[>> Lie down here forever.]](liedown)
+
+Fortunately, you haven't lost sight of the dirt path through the forest, the sight of which fills you with warm feelings of hope and safety.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Investigate the brook.]](brook_01)
+
+[little pile of rocks]:
+
+    @set stone
+    
+It's a pile of smooth stones. Somebody must have left them here! You pick up one of them and place it in your inventory. 
+
+[big pile of rocks]:
+
+These rocks are too heavy to pick up! That's alright though; they really add to the aesthetic of the clearing.
+
+[dandelions]:
+
+    @set dandelion
+    
+You pick a dandelion out of the ground and place it in your inventory. Maybe you can make a wish later!
+
+[blueberry bushes]:
+
+    @set blueberries
+    
+You pick a handful of blueberries from the bush and place them in your inventory.
+
+[[liedown]]:
+
+You lie down in the clearing until you die of natural causes.
+
+[[burndown_01]]:
+
+Are you sure you don't just want to proceed to the route? I'll even give you a second chance to check out that clearing.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Investigate the clearing.]](clearing)
+
+[[>> Burn down the entire forest with the cute animals still inside.]](burndown_02)
+
+[[burndown_02]]:
+
+    @set burndown
+    
+You set the trees around you ablaze and stand back. Within minutes, a square mile of heavily-forested area is engulfed in flames. In the distance, you hear the sirens of a firetruck. The wildfire has spread to a residential area, where countless people and homes are lost forever in the conflagration. 
+
+[[>> Proceed to the route.]](route_01)
+
+[[brook_01]]:
+
+You feel a soft spray of water on your face as you approach the brook. It appears to be flowing to the west. A [big red fish] leaps majestically out of the water, the sun glimmering along its scales. Farther down, you can see a fisherman casting his rod into the water.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Talk to the fisherman.]](brook_02)
+
+{if stone: [[>> Skip a smooth stone across the brook.]](skippingstone)}
+
+[big red fish]:
+
+You try to catch the big red fish in mid-air, but it is simply too quick! It swims swiftly off downstream as soon as it slaps the water below, leaving you wet and fishless.
+
+[[skippingstone]]:
+
+    @unset stone
+    @set goldstar
+
+You attempt to skip a smooth stone across the brook. It sinks after a single bounce, but you get a gold star for trying. You put the gold star in your inventory.
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Talk to the fisherman.]](brook_02)
+
+[[brook_02]]:
+
+You approach the fisherman. He is wearing a green jacket and a blue bucket hat. He sits comfortably on a flat rock, pole in the water. Next to his perch is a [metal bucket] full of fishing supplies. As the distance closes between you and him, he glances up from the brook to address you.
+
+"Hello there! How are you doing?"
+
+[[>> "My day is going splendidly!"]](brook_03a)
+
+[[>> "I'm doing alright, I guess."]](brook_03b)
+
+[[>> "Actually, I'm not doing so great."]](brook_03c)
+
+[[>> "Have you seen the route?"]](brook_03d)
+
+[metal bucket]:
+
+Gazing into the metal bucket, you can see that it is full of bread. There are about five slices of bread in the bucket. You reach for the handle, but the fisherman stops you. "Hey, that's my metal bucket," he asserts.
+
+[[brook_03a]]:
+
+You stumble on your own words and say that your dad is going splendidly, but the fisherman doesn't correct you.
+
+"That's excellent! Would you like to join me for a bit? The fish are biting."
+
+[[>> "Sure, sounds like a good time."]](brook_04a)
+
+[[>> "Eh, no thank you. I don't like fishing."]](brook_04b)
+
+[[brook_03b]]:
+
+"I understand exactly how you mean," he replies, nodding sagely while gazing off into the middle distance. You notice [a second fishing pole] sitting next to him on the rock.
+
+[[>> Proceed to the route.]](route_01)
+
+[a second fishing pole]:
+
+    @set fishingpole
+
+It's a well-made fishing pole. It has a little piece of bread on the end of the hook. You put the fishing pole in your inventory. As you do, the fisherman's eyes light up.
+
+"Hey, buddy, want to fish with me? I brought some animal crackers."
+
+[[>> "Sure."]](brook_04a)
+
+[[>> "Eh, no thank you. I just wanted the fishing pole."]](brook_04b)
+
+[[>> Strangle the man with his own fishing pole.]](fishingpole)
+
+[[brook_03c]]:
+
+The man looks, shook, and withdraws his hook from the brook. He pats an empty spot on the rock next to him. "Take a load off," he suggests. "What's troubling you?"
+
+[[>> "My entire family died in a fire."]](brook_backstory_01)
+
+[[>> "I was caught cheating on my spouse with my landscaper."]](brook_backstory_02)
+
+[[>> "I've come here to end my own life."]](brook_backstory_03)
+
+[[>> "I live in Omaha."]](brook_backstory_04)
+
+[[brook_03d]]:
+
+The man sighs. "Yes, the route. If you go back up the stream a bit, you'll find that old dirt path. Feel free to proceed to it."
+
+[[>> Proceed to the route.]](route_01)
+
+[[brook_backstory_01]]:
+
+[[brook_backstory_02]]:
+
+[[brook_backstory_03]]:
+
+[[brook_backstory_04]]:
+
+[[brook_04a]]:
+
+[[brook_04b]]:
+
+"Ah, that's alright," the fisherman says. Crestfallen, he gestures vaguely to the east. "The route is that way. It'll get you wherever you're going, or so they say."
+
+[[>> Proceed to the route.]](route_01)
+
+[[>> Reconsider.]](brook_04a)
+
+[[fishingpole]]:
+
+You strangle the man to death with his own fishing pole. He barely struggles as he accepts his untimely demise.
+
+[[>> Proceed to the route.]](route_01)
+
+[[route_01]]:
+
+You proceed to the route and find that it quickly leads out of the forest and to a concrete bridge. The bridge appears long - perhaps a quarter of a mile - but there are no cars or trucks nearby to drive across it. There is a steep, rugged hill on each side of the bridge. Far below the bridge is a massive river. You can spy some small sailboats floating along in the water. {if burndown: You can still discern the smell of burning vegetation as smoke billows from the forest behind you.}
+
+[[>> Proceed to the route.]](route_02)
+
+[[>> Wander down the hill.]](hill_01)
+
+[[hill_01]]:
+
+You make your way down the hill to the bank of the river below. 
+
+It's not too late to proceed to that route.
+
+[[>> Proceed to the route.]](route_02)
+
+[[route_02]]:
+
+You just straight up get shot because I haven't written this part yet.
