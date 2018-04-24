@@ -629,7 +629,7 @@ squiffy.story.start = '_default';
 squiffy.story.id = '7a4d823c0f';
 squiffy.story.sections = {
 	'_default': {
-		'text': "<p>You are seated at a restaurant.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"mark_01a\" role=\"link\" tabindex=\"0\">&gt;&gt; Debug.</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"_continue1\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a look around the restaurant.</a></p>",
+		'text': "<p>You are seated at a restaurant.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"_continue1\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a look around the restaurant.</a></p>",
 		'passages': {
 		},
 	},
@@ -642,6 +642,7 @@ squiffy.story.sections = {
 			},
 			'the floor below you': {
 				'text': "<p>You study the pattern of the rug with great interest. It appears to have been imported from a foreign country - south Asian, perhaps - where its intricate patterns and luxurious detail might have held spiritual significance. It now served as a glorified platter for a child&#39;s serving of mashed potatoes that the wait staff shows little to no interest in retrieving. </p>",
+				'attributes': ["loom_floor"],
 			},
 		},
 	},
@@ -650,6 +651,7 @@ squiffy.story.sections = {
 		'passages': {
 			'yours': {
 				'text': "<p>You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. &quot;Let&#39;s not get ahead of ourselves! There will be plenty of time for that later.&quot;</p>",
+				'attributes': ["denied_portfolio"],
 			},
 		},
 	},
@@ -659,17 +661,19 @@ squiffy.story.sections = {
 		},
 	},
 	'haveabite': {
-		'text': "<p>The Man raises an eyebrow at your curiously, then shrugs. &quot;Sure, it&#39;s all yours. I ate before we got here anyway.&quot; He forks a generous helping of fish onto your already-full plate.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> Take a bite of tilapia.\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a bite of tilapia.</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> Take a drink of wine.\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a drink of wine.</a></p>",
+		'text': "<p>The Man raises an eyebrow at your curiously, then shrugs. &quot;Sure, it&#39;s all yours. I ate before we got here anyway.&quot; He forks a generous helping of fish onto your already-full plate.</p>\n<p>Your intuition kicks in. It is almost time for business. You glance down at the table in front of you. A crucial decision awaits.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> Take a bite of tilapia.\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a bite of tilapia.</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> Take a drink of wine.\" role=\"link\" tabindex=\"0\">&gt;&gt; Take a drink of wine.</a></p>",
 		'passages': {
 		},
 	},
 	'>> Take a bite of tilapia.': {
 		'text': "<p>It&#39;s a bit dry, but you are very hungry. </p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> It is time for business.\" role=\"link\" tabindex=\"0\">&gt;&gt; It is time for business.</a></p>",
+		'attributes': ["ate_tilapia"],
 		'passages': {
 		},
 	},
 	'>> Take a drink of wine.': {
 		'text': "<p>The wine, despite tasting like watered-down hand soap, is surprisingly potent, and you feel a pleasant warmth in your throat as the alabaster fluid passes your lips. </p>\n<p><a class=\"squiffy-link link-section\" data-section=\">> It is time for business.\" role=\"link\" tabindex=\"0\">&gt;&gt; It is time for business.</a></p>",
+		'attributes': ["drank_wine"],
 		'passages': {
 		},
 	},
@@ -696,12 +700,12 @@ squiffy.story.sections = {
 		'text': "<p>&quot;Why you? They say you&#39;re the very best. Since being transferred to my division you have passed every test and trial with flying colors. The suits seem to think it&#39;s high time that you started working in the field, and I tend to agree. Any old schmuck can follow a script; you know how to improvise. That silver tongue of yours is our hot ticket. These men are going to buy <a class=\"squiffy-link link-passage\" data-passage=\"what we have to sell\" role=\"link\" tabindex=\"0\">what we have to sell</a>, they just don&#39;t know it yet.&quot;</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_1\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;What are we doing here again?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_2\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Why have you chosen me for this job?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_3\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Did you just grade your wine?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"mark_01a\" role=\"link\" tabindex=\"0\">&gt;&gt; Read the room.</a></p>",
 		'passages': {
 			'what we have to sell': {
-				'text': "<p>&quot;What is it that we&#39;re selling again, exactly?&quot; you ask.</p>\n<p>&quot;Wow, you really are nervous,&quot; The Man chuckles. &quot;We sell whatever sells. I&#39;ll sort out the minutae. Your job is to make the mark.&quot;</p>",
+				'text': "<p>&quot;What is it that we&#39;re selling again, exactly?&quot; you ask in earnest.</p>\n<p>&quot;Wow, you really are nervous,&quot; The Man chuckles. &quot;We sell whatever sells. I&#39;ll sort you out with the minutae. Your job is to make the mark.&quot;</p>",
 			},
 		},
 	},
 	'tilapia_3': {
-		'text': "<p>&quot;Have you not graded yours yet? How else might one assess a beverage of this caliber qualitatively? By what measure do you drink, friend?&quot;</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_1\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;What are we doing here again?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_2\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Why have you chosen me for this job?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_3\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Did you just grade your wine?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"mark_01a\" role=\"link\" tabindex=\"0\">&gt;&gt; Read the room.</a></p>",
+		'text': "<p>&quot;Have you not graded yours yet? How else might one assess a beverage of this caliber quantitatively? By what measure do you drink, friend?&quot;</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_1\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;What are we doing here again?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_2\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Why have you chosen me for this job?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"tilapia_3\" role=\"link\" tabindex=\"0\">&gt;&gt; &quot;Did you just grade your wine?&quot;</a></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"mark_01a\" role=\"link\" tabindex=\"0\">&gt;&gt; Read the room.</a></p>",
 		'passages': {
 		},
 	},
@@ -711,31 +715,37 @@ squiffy.story.sections = {
 		},
 	},
 	'plaid_01': {
-		'text': "<p>&quot;What about the gentleman in the plaid suit?&quot; you ask, nodding in the direction of the table with the urn. &quot;He seems well-off. Do you have him on file?&quot;</p>\n<p>The Man furrows his brow and glances at his documents. He licks his finger and runs it carefully along the edge of the formidable portfolio. He then spreads it open on the table before him. &quot;Of course, he&#39;s a regular here. His name is Guandinere Johnson. Everything you need to know is right here in his dossier. It looks as if he&#39;s just finished his meal, though; don&#39;t wait too long.&quot;</p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_1\" role=\"link\" tabindex=\"0\">&gt; &quot;Give me some background information.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_2\" role=\"link\" tabindex=\"0\">&gt; &quot;Tell me his darkest secrets.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_3\" role=\"link\" tabindex=\"0\">&gt; &quot;Tell me <em>your</em> darkest secrets.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_4\" role=\"link\" tabindex=\"0\">&gt; &quot;What does he usually eat here?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_5\" role=\"link\" tabindex=\"0\">&gt; &quot;What can I sell him?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_6\" role=\"link\" tabindex=\"0\">&gt; &quot;Do you have anything about me in there?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_7\" role=\"link\" tabindex=\"0\">&gt; Look at your own portfolio.</a></p>",
+		'text': "<p>&quot;What about the gentleman in the plaid suit?&quot; you ask, nodding in the direction of the table with the urn. &quot;He seems well-off. Do you have him on file?&quot;</p>\n<p>The Man furrows his brow and glances at his documents. He licks his finger and runs it carefully along the edge of the formidable portfolio. He then spreads it open on the table before him. &quot;Of course, he&#39;s a regular here. His name is Guandinere Johnson. Everything you need to know is right here in his dossier. It looks as if he&#39;s just finished his meal, though; don&#39;t wait too long.&quot;</p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_1\" role=\"link\" tabindex=\"0\">&gt; &quot;Give me some background information.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_2\" role=\"link\" tabindex=\"0\">&gt; &quot;Tell me his darkest secrets.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_3\" role=\"link\" tabindex=\"0\">&gt; &quot;Tell me <em>your</em> darkest secrets.&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_4\" role=\"link\" tabindex=\"0\">&gt; &quot;What does he like to eat here?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_5\" role=\"link\" tabindex=\"0\">&gt; &quot;What can I sell him?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_6\" role=\"link\" tabindex=\"0\">&gt; &quot;Do you have anything about me in there?&quot;</a></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"plaid_01_7\" role=\"link\" tabindex=\"0\">&gt; Look at your own portfolio.</a></p>",
 		'passages': {
 			'plaid_01_1': {
-				'text': "<p>&quot;Give me some background information,&quot; you say in earnest. &quot;I like to know my customers inside and out.&quot;</p>",
+				'text': "<p>&quot;Give me some background information.&quot;</p>\n<p>&quot;Alright, let me see here...&quot; The Man procures a lengthy dossier from the depths of his portfolio. &quot;Guandinere Johnson. His thirty-sixth birthday is next week. Family scores about 8 out of 10 on the wealth scale. His father was a banker and his mother used the bank a lot. At twenty-seven he married some princess in Siam, fourth in line for the throne, 10 out of 10 hot. He&#39;s got a gentleman&#39;s taste, to be sure. Suits, watches, escorts, that sort of thing. Also a bit of a connoisseur when it comes to fine wines.{if drank_wine:  Judging from the look on your face, I&#39;d order him something red.}&quot;</p>",
+				'attributes': ["plaid_background","plaid_name"],
 			},
 			'plaid_01_2': {
-				'text': "<p>&quot;What are his darkest secrets?&quot; you ask in earnest. &quot;Give me something salacious. Sometimes what a man doesn&#39;t tell you is the greatest window to his psyche.&quot;</p>",
+				'text': "<p>&quot;What are his darkest secrets?&quot; you ask in earnest.</p>\n<p>&quot;In terms of sketchiness? I&#39;d give him a 5 out of 10.&quot; The Man slides a rubric from the fold of his portfolio. &quot;Mostly typical businessman stuff, unfortunately. Offshore accounts, money mysteriously appearing and disappearing, that sort of thing. Had a close call with amphetamines a couple of years ago, but I&#39;d hardly fault him for that. Being that rich can&#39;t be easy.&quot;</p>",
+				'attributes': ["plaid_darkest"],
 			},
 			'plaid_01_3': {
-				'text': "<p>&quot;What are <em>your</em> darkest secrets?&quot; you ask in earnest. &quot;&quot;</p>",
+				'text': "<p>&quot;What are <em>your</em> darkest secrets?&quot; you ask in earnest.</p>\n<p>The Man frowns for a moment, then shrugs. &quot;In 2035, I hit a man with my car at a Mardi Gras parade. Well, actually, it was a kid, actually four kids, and I was driving a float. That isn&#39;t really important to the task at hand, however.&quot;</p>",
+				'attributes': ["arthur_darkest"],
 			},
 			'plaid_01_4': {
-				'text': "<p>&quot;What does he usually eat here?&quot; you ask in earnest. &quot;The fastest way to a man&#39;s heart is through his stomach.&quot;</p>",
+				'text': "<p>You can already see the vestiges of prime rib on {if plaid_name: Guandinere Johnson&#39;s}{else: the man&#39;s} lapel. It would be silly to ask what he enjoys eating. He has clearly already eaten, so any relevance of the question to your operations has passed. Additionally, why would he order something from the restaurant that he did not enjoy? You quietly berate yourself for having the audacity to entertain such a frivolous question.</p>",
+				'attributes': ["plaid_eat"],
 			},
 			'plaid_01_5': {
-				'text': "<p>&quot;What can I sell him?&quot; you ask in earnest. &quot;&quot;</p>",
+				'text': "<p>&quot;What can I sell him?&quot; you ask in earnest.</p>\n<p>The Man procures another rubric from his portfolio. This one is painstakingly marked up with a red pen.</p>\n<p>&quot;I need you to sell him fourteen ball-bearings.&quot;</p>",
+				'attributes': ["plaid_sell"],
 			},
 			'plaid_01_6': {
-				'text': "<p>&quot;Do you have anything about me in that portfolio?&quot; you ask in earnest. &quot;&quot;</p>",
+				'text': "<p>&quot;Do you have anything about me in that portfolio of yours?&quot; you ask in earnest.</p>\n<p>&quot;Why, of course I do,&quot; reveals The Man without hesitation. &quot;Your name is Aria Wilco. You&#39;re twenty-five, so I suppose you&#39;ve been working at this company your entire adult life. Your skills are all right here in this file: persuasion, improvisation, tact, all 9s and 10s. A perfect 26 on the Aptitude Test. And today, 18th of April, 2113, marks the date of your first real challenge.&quot;</p>",
+				'attributes': ["me"],
 			},
 			'plaid_01_7': {
-				'text': "",
+				'text': "<p>{if denied_portfolio: Wordlessly, you eye the portfolio sitting next to your plate. The Man&#39;s countenance becomes incrementally intense as he realizes your intentions, but he is far too late. The smooth leather finish wafts euphorically into your nasal cavity, it&#39;s sweet contents inches from your prying eyeballs. }{else: You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. &quot;Let&#39;s not get ahead of ourselves! There will be plenty of time for that later.&quot;}</p>\n<p>{if denied_portfolio:{@my_portfolio}}{else:{@denied_portfolio}}</p>",
 			},
 			'@1': {
-				'text': "<p>asdf</p>",
+				'text': "<p>{if ate_tilapia: You can feel the tilapia churning unceremoniously in your abdomen.}{if drank_wine: The wine&#39;s intoxicating effects begin to take hold of your consciousness as the foul liquid stagnates in your abdomen.} You surmise that time remains for two further inquiries.</p>",
 			},
 			'@2': {
 				'text': "<p>You become aware of an incessant ticking sound. {if loom_ornaments: You glance at the art installment to see if the clocks have begun to turn, but they remain dormant.} The Man flashes a gold watch on his left wrist, reminding you of your pressing time constraint. Time remains for a single question.</p>",
@@ -749,7 +759,12 @@ squiffy.story.sections = {
 		},
 	},
 	'plaid_02': {
-		'text': "<p>&quot;Alright, it&#39;s time to make your move,&quot; The Man advises.</p>",
+		'text': "<p>&quot;Alright, it&#39;s time to make your move,&quot; The Man advises. He passes a catalogue across the table to you and winks.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"_continue3\" role=\"link\" tabindex=\"0\">&gt;&gt; Proceed to the route.</a></p>",
+		'passages': {
+		},
+	},
+	'_continue3': {
+		'text': "<p>Deftly, you rise from your seat and begin to walk towards </p>",
 		'passages': {
 		},
 	},
@@ -759,7 +774,7 @@ squiffy.story.sections = {
 		},
 	},
 	'pearl_01': {
-		'text': "",
+		'text': "<p>&quot;Eh, not her,&quot; The Man advises.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"mark_01f\" role=\"link\" tabindex=\"0\">&gt;&gt; Continue to scan the room.</a></p>",
 		'passages': {
 		},
 	},

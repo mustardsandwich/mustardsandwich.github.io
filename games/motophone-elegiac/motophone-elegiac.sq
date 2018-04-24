@@ -229,9 +229,9 @@ The Man procures another rubric from his portfolio. This one is painstakingly ma
 
 [plaid_01_7]:
 
-{if denied_portfolio:{@my_portfolio}}{else:{@denied_portfolio}}
-
 {if denied_portfolio: Wordlessly, you eye the portfolio sitting next to your plate. The Man's countenance becomes incrementally intense as he realizes your intentions, but he is far too late. The smooth leather finish wafts euphorically into your nasal cavity, it's sweet contents inches from your prying eyeballs. }{else: You move to open your portfolio, but The Man eyes you suspiciously. He then laughs heartily. "Let's not get ahead of ourselves! There will be plenty of time for that later."}
+
+{if denied_portfolio:{@my_portfolio}}{else:{@denied_portfolio}}
 
 [@1]:
 
