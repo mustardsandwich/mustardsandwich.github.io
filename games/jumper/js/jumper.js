@@ -51,6 +51,7 @@ function create(){
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'ONE SWEET RIDE');
 			menu_subtitle.anchor.set(0.5, 0.5);
 			menu_button_play = game.add.button(game.world.width / 2 - 128, 128, 'menu_button_play', playButton, this, 1, 0, 1);
+			break;
 		case 1:
 	        // Here we start up the physics engine.
 	        game.add.sprite(0, 0, 'background');
