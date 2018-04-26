@@ -64,16 +64,9 @@ function create(){
 	        jumper.frame = 2;
 			break;
 		default: // Error: player visits unknown room
-	        game.physics.startSystem(Phaser.Physics.ARCADE);
 			menu_title = makeText(-1, -1, 0, 36, 0, "Life is but an error.");
 			menu_title.anchor.set(0.5, 0.5);
 	        game.add.sprite(0, 0, 'background');
-	        jumper = game.add.sprite(0, 0, 'jumper');
-	        jumper.x = (game.world.width / 2) - (jumper.width / 2);
-	        jumper.y = 400 - jumper.height;
-	        game.physics.arcade.enable(jumper);
-	        // jumper.body.bounce.y = 0.1;
-	        jumper.frame = 2;
 	}
 }
 
@@ -156,40 +149,44 @@ function playButton(){
  *   This is where the magic happens!
  */
 function update() {
-	// Set default speed to 0
-	jumper.body.velocity.x = 0;
+	switch(room){
+		case 1:
+			// Set default speed to 0
+			jumper.body.velocity.x = 0;
 	
-	// Check that Jumper doesn't fall through the floor.
-	if(jumper.y >= 400 - jumper.height){
-		jumper.body.velocity.y = 0;
-		jumper.body.gravity.y = 0;
-		jumper_ystate = 0;
+			// Check that Jumper doesn't fall through the floor.
+			if(jumper.y >= 400 - jumper.height){
+				jumper.body.velocity.y = 0;
+				jumper.body.gravity.y = 0;
+				jumper_ystate = 0;
+			}
+	
+			// Let Jumper wrap around the screen.
+			if(jumper.x > game.world.width){ jumper.x = -jumper.width; }
+			if(jumper.x < -jumper.width){ jumper.x = game.world.width; }
+			
+			// Jumper movement
+			if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)
+			|| game.input.keyboard.isDown(Phaser.Keyboard.A)){
+				jumper_xstate = 0;
+				jumper.body.velocity.x = -jumper_speed;
+			}
+			else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)
+				|| game.input.keyboard.isDown(Phaser.Keyboard.D)){
+				jumper_xstate = 1;
+				jumper.body.velocity.x = jumper_speed;
+			}
+			
+			// Jumper jumping
+			if((game.input.keyboard.isDown(Phaser.Keyboard.UP)
+			|| game.input.keyboard.isDown(Phaser.Keyboard.W)) && jumper_ystate === 0){
+				jumper_ystate = 1;
+				jumper.body.velocity.y = -800;
+				jumper.body.gravity.y = 1500;
+			}
+			
+			// Set jumper sprite
+			jumper.frame = jumper_frames[jumper_xstate][jumper_ystate];
+			break;
 	}
-	
-	// Let Jumper wrap around the screen.
-	if(jumper.x > game.world.width){ jumper.x = -jumper.width; }
-	if(jumper.x < -jumper.width){ jumper.x = game.world.width; }
-	
-	// Jumper movement
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)
-	|| game.input.keyboard.isDown(Phaser.Keyboard.A)){
-		jumper_xstate = 0;
-		jumper.body.velocity.x = -jumper_speed;
-	}
-	else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)
-		 || game.input.keyboard.isDown(Phaser.Keyboard.D)){
-		jumper_xstate = 1;
-		jumper.body.velocity.x = jumper_speed;
-	}
-	
-	// Jumper jumping
-	if((game.input.keyboard.isDown(Phaser.Keyboard.UP)
-     || game.input.keyboard.isDown(Phaser.Keyboard.W)) && jumper_ystate === 0){
-		jumper_ystate = 1;
-		jumper.body.velocity.y = -800;
-		jumper.body.gravity.y = 1500;
-	}
-	
-	// Set jumper sprite
-	jumper.frame = jumper_frames[jumper_xstate][jumper_ystate];
 }
