@@ -27,14 +27,13 @@ WebFont.load(wfconfig);
 function preload() {
 	// Here we preload all of the game's assets.
 	game.load.image('background', 'img/background.png');
-	game.load.spritesheet('jumper', 'img/jumper.png', 78, 89);
-	game.load.spritesheet('carrot', 'img/carrot.png', 78, 39);
 	game.load.spritesheet('menu_button_play', 'img/button_play.png', 256, 128);
+	game.load.spritesheet('jumper', 'img/jumper.png', 78, 89);
+	game.load.spritesheet('explode', 'img/explode.png', 100, 100);
+	game.load.spritesheet('carrot', 'img/carrot.png', 78, 39);
 }
 
 var room = 0;
-
-// var jumper;
 var jumper_xstate = 1;
 var jumper_ystate = 0;
 var jumper_speed = 450;
