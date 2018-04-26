@@ -29,6 +29,7 @@ function preload() {
 	game.load.image('background', 'img/background.png');
 	game.load.spritesheet('jumper', 'img/jumper.png', 78, 89);
 	game.load.spritesheet('carrot', 'img/carrot.png', 78, 39);
+	game.load.spritesheet('menu_button_play', wp2 + 'menu/button_play.png', 256, 128);
 }
 
 var jumper;
