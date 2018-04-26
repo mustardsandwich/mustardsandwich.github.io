@@ -122,6 +122,10 @@ li a:hover {
 	text-align: center;
 	width: 20%;
 }
+.gt2 {
+	/* Shrink text for larger tables */
+	font-size: 20px;
+}
 
 /* These are mostly used on the pages with games on them. */
 h2 {
