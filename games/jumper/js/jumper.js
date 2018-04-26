@@ -28,6 +28,7 @@ function preload() {
 	// Here we preload all of the game's assets.
 	game.load.image('background', 'img/background.png');
 	game.load.spritesheet('jumper', 'img/jumper.png', 78, 89);
+	game.load.spritesheet('carrot', 'img/carrot.png', 78, 39);
 }
 
 var jumper;
@@ -47,7 +48,7 @@ function create(){
 	jumper.x = (game.world.width / 2) - (jumper.width / 2);
 	jumper.y = 400 - jumper.height;
 	game.physics.arcade.enable(jumper);
-	jumper.body.bounce.y = 0.1;
+	// jumper.body.bounce.y = 0.1;
 	jumper.frame = 2;
 }
 
