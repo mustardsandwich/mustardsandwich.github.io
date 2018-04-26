@@ -34,6 +34,7 @@ function preload() {
 }
 
 var room = 0;
+var jumper;
 var jumper_xstate = 1;
 var jumper_ystate = 0;
 var jumper_speed = 450;
