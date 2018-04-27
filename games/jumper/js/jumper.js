@@ -128,7 +128,7 @@ function makeText(x, y, font, size, color, myText){
 	 */
 	switch(color){
 		case 0:
-			a[4] = "#145D";
+			a[4] = "#145D00";
 			break;
 		case 1:
 			a[4] = "#000";
