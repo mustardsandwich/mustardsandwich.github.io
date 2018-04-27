@@ -51,7 +51,7 @@ function create(){
 			menu_title.anchor.set(0.5, 0.5);
 			menu_subtitle = makeText(-1, 84, 0, 36, 0, 'ONE SWEET RIDE');
 			menu_subtitle.anchor.set(0.5, 0.5);
-			menu_button_play = game.add.button(game.world.width / 2 - 128, 128, 'menu_button_play', playButton, this, 1, 0, 1);
+			menu_button_play = game.add.button(game.world.width / 2 - 128, game.world.height / 2 - 64, 'menu_button_play', playButton, this, 1, 0, 1);
 			break;
 		case 1:
 	        // Here we start up the physics engine.
@@ -121,7 +121,7 @@ function makeText(x, y, font, size, color, myText){
 	 *   Different numbers for different colors.
 	 *   Here's a quick reference:
 	 *   
-	 *   0 : JUMPER GREEN #145D
+	 *   0 : JUMPER GREEN #145D00
 	 *   1 : BLACK #000
 	 *
 	 *   The color defaults to jumper green.
