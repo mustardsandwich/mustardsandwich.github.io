@@ -1,0 +1,26 @@
+Thank you for applying for a license to work in the state of Texas. Your compliance with local and federal regulations is greatly appreciated.
+
+[[>> CONTINUE]](employ0)
+
+[[employ0]]:
+
+Please select the option that best describes you.
+
+[[>> MALE]](employ1, gender=male, role=man, roles=men, pro1=he, pro2=his, pro3=him)
+
+[[>> FEMALE]](employ1, gender=female, role=woman, roles=women, pro1=she, pro2=her, pro3=her)
+
+[[>> EMALE]](employ1, gender=emale, role=inbox, roles=inboxes, pro1=h@, pro2=h@s, pro3=h@r)
+
+[[employ1]]:
+
+Please confirm that you are {gender}.
+
+[[>> CONFIRM]](employ2)
+
+[[>> DECLINE]](employ0)
+
+[[employ2]]:
+
+Welcome to the workforce, {role}.
+
